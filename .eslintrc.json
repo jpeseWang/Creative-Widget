@@ -1,0 +1,51 @@
+{
+	"root": true,
+	"ignorePatterns": ["**/*"],
+	"plugins": ["@nrwl/nx"],
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+			"rules": {
+				"@nrwl/nx/enforce-module-boundaries": [
+					"error",
+					{
+						"enforceBuildableLibDependency": true,
+						"allow": [],
+						"depConstraints": [
+							{
+								"sourceTag": "*",
+								"onlyDependOnLibsWithTags": ["*"]
+							}
+						]
+					}
+				],
+				"@angular-eslint/no-output-on-prefix": [0],
+				"@angular-eslint/no-empty-lifecycle-method": "off"
+			}
+		},
+		{
+			"files": ["*.js", "*.jsx"],
+			"extends": ["plugin:@nrwl/nx/javascript"],
+			"rules": {}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"extends": [
+				"eslint:recommended",
+				"plugin:@nrwl/nx/typescript",
+				"plugin:@angular-eslint/recommended",
+				"plugin:@angular-eslint/template/process-inline-templates",
+				"plugin:@nrwl/nx/angular"
+			],
+			"rules": {
+				"@angular-eslint/no-output-on-prefix": [0],
+				"@angular-eslint/no-empty-lifecycle-method": "off"
+			}
+		},
+		{
+			"files": ["*.html"],
+			"extends": ["plugin:@nrwl/nx/angular-template"],
+			"rules": {}
+		}
+	]
+}

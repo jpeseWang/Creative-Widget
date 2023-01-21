@@ -1,0 +1,28 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"types": ["node"],
+		"typeRoots": ["../node_modules/@types"],
+		"rootDir": ".",
+		"baseUrl": ".",
+		"sourceMap": true,
+		"declaration": false,
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"noUnusedLocals": true,
+		"target": "es2018",
+		"module": "esnext",
+		"lib": ["es2020", "dom"],
+		"strictPropertyInitialization": false,
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"paths": {
+			"@jpw/apps/remotes/home": ["apps/remotes/home/src/app/index.ts"],
+			"@jpw/lib/shared/ui/module-not-found": ["libs/shared/src/ui/module-not-found/index.ts"],
+			"@jpw/shared": ["libs/shared/src/index.ts"]
+		}
+	},
+	"exclude": ["node_modules", "tmp"]
+}
