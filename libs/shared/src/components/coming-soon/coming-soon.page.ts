@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'dgm-coming-soon-page',
+	selector: 'cwp-coming-soon-page',
 	templateUrl: './coming-soon.page.html',
 	standalone: true,
 })

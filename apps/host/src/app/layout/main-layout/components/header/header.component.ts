@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'dgm-header',
+	selector: 'cwp-header',
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.scss'],
 })

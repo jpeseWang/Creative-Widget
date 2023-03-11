@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'dgm-home',
+	selector: 'cwp-home',
 	templateUrl: './home.page.html',
 	styleUrls: ['./home.page.scss'],
 })

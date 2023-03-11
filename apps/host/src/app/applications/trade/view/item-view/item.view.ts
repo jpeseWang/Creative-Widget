@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-	selector: 'dgm-item',
+	selector: 'cwp-item',
 	templateUrl: './item.view.html',
 	styleUrls: ['./item.view.scss'],
 })

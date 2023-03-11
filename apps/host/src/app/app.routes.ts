@@ -21,6 +21,6 @@ export const APP_ROUTES: Routes = [
 	{
 		path: '**',
 		loadChildren: () =>
-			import('@dgm/shared/components/page-not-found').then(m => m.NotFoundPageModule),
+			import('@cwp/shared/components/page-not-found').then(m => m.NotFoundPageModule),
 	},
 ];

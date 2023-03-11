@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
 	imports: [CommonModule, RouterModule],
-	selector: 'dgm-coming-soon-page',
+	selector: 'cwp-coming-soon-page',
 	templateUrl: './access-denied.page.html',
 	standalone: true,
 })

@@ -17,7 +17,7 @@
 					"error",
 					{
 						"type": "element",
-						"prefix": "dgm",
+						"prefix": "cwp",
 						"style": "kebab-case"
 					}
 				]

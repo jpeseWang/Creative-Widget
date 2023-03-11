@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'dgm-search',
+	selector: 'cwp-search',
 	templateUrl: './search.page.html',
 	styleUrls: ['./search.page.scss'],
 })
