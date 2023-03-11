@@ -18,4 +18,9 @@ export const APP_ROUTES: Routes = [
 		path: 'admin',
 		loadChildren: () => import('./applications/admin/admin.module').then(m => m.AdminModule),
 	},
+	{
+		path: '**',
+		loadChildren: () =>
+			import('@dgm/shared/components/page-not-found').then(m => m.NotFoundPageModule),
+	},
 ];

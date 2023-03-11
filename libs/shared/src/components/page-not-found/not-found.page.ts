@@ -1,11 +1,8 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
 @Component({
-	imports: [CommonModule, RouterModule],
-	selector: 'dgm-not-found-page',
+	selector: 'dgm-not-found',
 	templateUrl: './not-found.page.html',
-	standalone: true,
+	styleUrls: ['./not-found.page.scss'],
 })
-export class PageNotFoundComponent {}
+export class NotFoundPageComponent {}
