@@ -1,0 +1,39 @@
+.skeleton-loader {
+	opacity: 0.8;
+	box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
+	background: #dddfe2;
+	display: inline-block;
+	will-change: transform;
+	transform: translate3d(0, 0, 0);
+	border-radius: 6px;
+}
+
+.skeleton-loader.progress:before {
+	animation: 2s ease-in-out infinite progress;
+	background-size: 200px 100%;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 100%;
+	content: '';
+	background-image: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0),
+		#bcc1c5,
+		rgba(255, 255, 255, 0)
+	);
+}
+
+@keyframes progress {
+	0% {
+		transform: translate3d(-200px, 0, 0);
+	}
+
+	100% {
+		transform: translate3d(calc(200px + 100vw), 0, 0);
+	}
+}

@@ -21,7 +21,13 @@
 		"paths": {
 			"@dgm/apps/remotes/home": ["apps/remotes/home/src/app/index.ts"],
 			"@dgm/lib/shared/ui/module-not-found": ["libs/shared/src/ui/module-not-found/index.ts"],
-			"@dgm/shared": ["libs/shared/src/index.ts"]
+			"@dgm/shared": ["libs/shared/src/index.ts"],
+			"dgm/shared/components/breadcrumb": ["libs/shared/src/components/breadcrumb/index.ts"],
+			"dgm/shared/components/loading": ["libs/shared/src/components/loading/index.ts"],
+			"dgm/shared/components/logo": ["libs/shared/src/components/logo/index.ts"],
+			"dgm/shared/components/paginator": ["libs/shared/src/components/paginator/index.ts"],
+			"dgm/shared/components/skeleton": ["libs/shared/src/components/skeleton/index.ts"],
+			"dgm/shared/pipes/skeleton": ["libs/shared/src/pipes/date-format/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
