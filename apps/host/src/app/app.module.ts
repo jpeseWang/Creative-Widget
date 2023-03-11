@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { APP_ROUTES } from './app.routes';
 
-import { CoreModule } from './configurations';
+import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app.routes';
+import { CwpButtonModule } from '@cwp/shared/ui/button';
+import { FeaturesComponent } from './applications/pages/features/features.component';
+import { AboutUsComponent } from './applications/pages/about-us/about-us.component';
+import { AppLayoutModule } from '@cwp/shared/layout';
+
 @NgModule({
-	declarations: [AppComponent],
-	imports: [
-		BrowserModule,
-		RouterModule.forRoot(APP_ROUTES), // on running
-		// RouterModule.forRoot(APP_MAINTENANCE_ROUTES), // on maintenance
-		CoreModule,
-	],
-	providers: [],
-	bootstrap: [AppComponent],
+  declarations: [AppComponent, FeaturesComponent, AboutUsComponent],
+  imports: [
+    BrowserModule,
+    AppLayoutModule,
+    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    CwpButtonModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

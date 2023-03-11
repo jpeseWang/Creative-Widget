@@ -1,48 +1,46 @@
 {
-	"compileOnSave": false,
-	"compilerOptions": {
-		"types": ["node"],
-		"typeRoots": ["../node_modules/@types"],
-		"rootDir": ".",
-		"baseUrl": ".",
-		"sourceMap": true,
-		"declaration": false,
-		"moduleResolution": "node",
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true,
-		"importHelpers": true,
-		"noUnusedLocals": true,
-		"target": "es2018",
-		"module": "esnext",
-		"lib": ["es2020", "dom"],
-		"strictPropertyInitialization": false,
-		"skipLibCheck": true,
-		"skipDefaultLibCheck": true,
-		"paths": {
-			"@cwp/apps/remotes/home": ["apps/remotes/home/src/app/index.ts"],
-			"@cwp/shared": ["libs/shared/src/index.ts"],
-			"@cwp/shared/components/access-denied": [
-				"libs/shared/src/components/access-denied/index.ts"
-			],
-			"@cwp/shared/components/breadcrumb": ["libs/shared/src/components/breadcrumb/index.ts"],
-			"@cwp/shared/components/coming-soon": [
-				"libs/shared/src/components/coming-soon/index.ts"
-			],
-			"@cwp/shared/components/loading": ["libs/shared/src/components/loading/index.ts"],
-			"@cwp/shared/components/logo": ["libs/shared/src/components/logo/index.ts"],
-			"@cwp/shared/components/maintenance": [
-				"libs/shared/src/components/maintenance/index.ts"
-			],
-			"@cwp/shared/components/module-not-found": [
-				"libs/shared/src/components/module-not-found/index.ts"
-			],
-			"@cwp/shared/components/page-not-found": [
-				"libs/shared/src/components/page-not-found/index.ts"
-			],
-			"@cwp/shared/components/paginator": ["libs/shared/src/components/paginator/index.ts"],
-			"@cwp/shared/components/skeleton": ["libs/shared/src/components/skeleton/index.ts"],
-			"@cwp/shared/pipes/skeleton": ["libs/shared/src/pipes/date-format/index.ts"]
-		}
-	},
-	"exclude": ["node_modules", "tmp"]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@cwp/remotes-app/account": ["libs/remotes-app/account/src/index.ts"],
+      "@cwp/remotes-app/admin": ["libs/remotes-app/admin/src/index.ts"],
+      "@cwp/remotes-app/community": ["libs/remotes-app/community/src/index.ts"],
+      "@cwp/remotes-app/customer-support": [
+        "libs/remotes-app/customer-support/src/index.ts"
+      ],
+      "@cwp/remotes-app/dashboard": ["libs/remotes-app/dashboard/src/index.ts"],
+      "@cwp/remotes-app/home": ["libs/remotes-app/home/src/index.ts"],
+      "@cwp/remotes-app/marketplace": [
+        "libs/remotes-app/marketplace/src/index.ts"
+      ],
+      "@cwp/remotes-app/page": ["libs/remotes-app/page/src/index.ts"],
+      "@cwp/remotes-app/webpage": ["libs/remotes-app/webpage/src/index.ts"],
+      "@cwp/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@cwp/shared/layout": ["libs/shared/layout/src/index.ts"],
+      "@cwp/shared/pages/error-page": [
+        "libs/shared/pages/error-page/src/index.ts"
+      ],
+      "@cwp/shared/pages/maintenance-page": [
+        "libs/shared/pages/maintenance-page/src/index.ts"
+      ],
+      "@cwp/shared/pages/permission-page": [
+        "libs/shared/pages/permission-page/src/index.ts"
+      ],
+      "@cwp/shared/ui/button": ["libs/shared/ui/button/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
 }

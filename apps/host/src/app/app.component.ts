@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
-
+import { environment } from '../environments/environment';
 @Component({
-	selector: 'cwp-root',
-	template: '<router-outlet></router-outlet>',
+  selector: 'cwp-root',
+  templateUrl: './app.component.html'
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'host';
+
+  constructor() {
+    console.log(environment.production);
+  }
+}
