@@ -17,7 +17,7 @@
 					"error",
 					{
 						"type": "element",
-						"prefix": "jpw",
+						"prefix": "dgm",
 						"style": "kebab-case"
 					}
 				]

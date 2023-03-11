@@ -19,9 +19,9 @@
 		"skipLibCheck": true,
 		"skipDefaultLibCheck": true,
 		"paths": {
-			"@jpw/apps/remotes/home": ["apps/remotes/home/src/app/index.ts"],
-			"@jpw/lib/shared/ui/module-not-found": ["libs/shared/src/ui/module-not-found/index.ts"],
-			"@jpw/shared": ["libs/shared/src/index.ts"]
+			"@dgm/apps/remotes/home": ["apps/remotes/home/src/app/index.ts"],
+			"@dgm/lib/shared/ui/module-not-found": ["libs/shared/src/ui/module-not-found/index.ts"],
+			"@dgm/shared": ["libs/shared/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

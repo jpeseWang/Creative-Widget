@@ -3,7 +3,7 @@
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"projectType": "library",
 	"sourceRoot": "libs/shared/src",
-	"prefix": "jpw",
+	"prefix": "dgm",
 	"targets": {
 		"build": {
 			"executor": "@nrwl/angular:ng-packagr-lite",

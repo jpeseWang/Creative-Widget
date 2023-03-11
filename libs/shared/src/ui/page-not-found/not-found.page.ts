@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
 	imports: [CommonModule, RouterModule],
-	selector: 'jpw-not-found-page',
+	selector: 'dgm-not-found-page',
 	templateUrl: './not-found.page.html',
 	standalone: true,
 })
