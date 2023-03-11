@@ -15,7 +15,7 @@ export const ACCOUNT_ROUTES: Routes = [
 				path: 'profile',
 				canActivate: [],
 				loadChildren: () =>
-					import('./pages/account-profile/account-profile.module').then(
+					import('./pages/account-profile/account-profile-page.module').then(
 						m => m.AccountProfileModule
 					),
 			},
@@ -23,7 +23,7 @@ export const ACCOUNT_ROUTES: Routes = [
 				path: 'history',
 				canActivate: [],
 				loadChildren: () =>
-					import('./pages/account-history/account-history.module').then(
+					import('./pages/account-history/account-history-page.module').then(
 						m => m.AccountHistoryModule
 					),
 			},
@@ -31,7 +31,7 @@ export const ACCOUNT_ROUTES: Routes = [
 				path: 'profile/:id',
 				canActivate: [],
 				loadChildren: () =>
-					import('./pages/view-account-profile/view-account-profile.module').then(
+					import('./pages/view-account-profile/view-account-profile-page.module').then(
 						m => m.ViewAccountProfileModule
 					),
 			},

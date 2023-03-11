@@ -15,13 +15,13 @@ export const TRADE_ROUTES: Routes = [
 				path: 'search',
 				canActivate: [],
 				loadChildren: () =>
-					import('./pages/search/search.module').then(m => m.SearchModule),
+					import('./pages/search/search-page.module').then(m => m.SearchModule),
 			},
 			{
 				path: 'exchange',
 				canActivate: [],
 				loadChildren: () =>
-					import('./pages/exchange/exchange.module').then(m => m.ExchangeModule),
+					import('./pages/exchange/exchange-page.module').then(m => m.ExchangeModule),
 			},
 		],
 	},
