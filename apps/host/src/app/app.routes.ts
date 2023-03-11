@@ -1,10 +1,21 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 
 export const APP_ROUTES: Routes = [
 	{
 		path: '',
-		component: AppComponent,
-		pathMatch: 'full',
+		loadChildren: () => import('./applications/home/home.module').then(m => m.HomeModule),
+	},
+	{
+		path: 'trade',
+		loadChildren: () => import('./applications/trade/trade.module').then(m => m.TradeModule),
+	},
+	{
+		path: 'account',
+		loadChildren: () =>
+			import('./applications/account/account.module').then(m => m.AccountModule),
+	},
+	{
+		path: 'admin',
+		loadChildren: () => import('./applications/admin/admin.module').then(m => m.AdminModule),
 	},
 ];
