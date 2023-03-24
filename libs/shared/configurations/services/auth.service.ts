@@ -2,13 +2,11 @@
  * Based on
  * https://github.com/cornflourblue/angular-7-jwt-authentication-example
  */
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { ApiService } from '.';
-import { UserProfileModel } from '../models';
-import { TokenModel } from '../models/token.model';
+import { TokenModel, UserProfileModel } from '../model';
 
 export interface ApplicationUser {
   token: TokenModel;
@@ -24,7 +22,6 @@ export class AuthService {
   public currentUser: Observable<ApplicationUser>;
 
   constructor(
-    private readonly http: HttpClient,
     private apiServices: ApiService,
     private router: Router,
   ) {

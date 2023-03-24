@@ -1,5 +1,4 @@
 // dev env
-
 export const environment = {
     production: false,
     GOOGLE_MAPS_API_KEY: 'AIzaSyAGbKyV6NLLj3GoKWuHRyS03CZph5L9Huw',

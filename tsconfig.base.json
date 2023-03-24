@@ -10,26 +10,47 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cwp/remotes-app/account": ["libs/remotes-app/account/src/index.ts"],
-      "@cwp/remotes-app/admin": ["libs/remotes-app/admin/src/index.ts"],
-      "@cwp/remotes-app/community": ["libs/remotes-app/community/src/index.ts"],
+      "@cwp/remotes-app/account": [
+        "libs/remotes-app/account/src/index.ts"
+      ],
+      "@cwp/remotes-app/admin": [
+        "libs/remotes-app/admin/src/index.ts"
+      ],
+      "@cwp/remotes-app/community": [
+        "libs/remotes-app/community/src/index.ts"
+      ],
       "@cwp/remotes-app/customer-support": [
         "libs/remotes-app/customer-support/src/index.ts"
       ],
-      "@cwp/remotes-app/dashboard": ["libs/remotes-app/dashboard/src/index.ts"],
-      "@cwp/remotes-app/home": ["libs/remotes-app/home/src/index.ts"],
+      "@cwp/remotes-app/dashboard": [
+        "libs/remotes-app/dashboard/src/index.ts"
+      ],
+      "@cwp/remotes-app/home": [
+        "libs/remotes-app/home/src/index.ts"
+      ],
       "@cwp/remotes-app/marketplace": [
         "libs/remotes-app/marketplace/src/index.ts"
       ],
-      "@cwp/remotes-app/page": ["libs/remotes-app/page/src/index.ts"],
-      "@cwp/remotes-app/webpage": ["libs/remotes-app/webpage/src/index.ts"],
-      "@cwp/shared/data-access": ["libs/shared/data-access/src/index.ts"],
-      "@cwp/shared/layout": ["libs/shared/layout/src/index.ts"],
+      "@cwp/remotes-app/page": [
+        "libs/remotes-app/page/src/index.ts"
+      ],
+      "@cwp/remotes-app/webpage": [
+        "libs/remotes-app/webpage/src/index.ts"
+      ],
+      "@cwp/shared/data-access": [
+        "libs/shared/data-access/src/index.ts"
+      ],
+      "@cwp/shared/layout": [
+        "libs/shared/layout/src/index.ts"
+      ],
       "@cwp/shared/pages/error-page": [
         "libs/shared/pages/error-page/src/index.ts"
       ],
@@ -39,8 +60,13 @@
       "@cwp/shared/pages/permission-page": [
         "libs/shared/pages/permission-page/src/index.ts"
       ],
-      "@cwp/shared/ui/button": ["libs/shared/ui/button/src/index.ts"]
+      "@cwp/shared/ui/button": [
+        "libs/shared/ui/button/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

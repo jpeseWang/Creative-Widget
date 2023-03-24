@@ -1,10 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { LoginComponent } from './login/login.component';
-import { RouterModule } from '@angular/router';
-import { Route } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { Route, RouterModule } from '@angular/router';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const AUTH_ROUTE: Route[] = [
   {
@@ -27,8 +31,15 @@ const AUTH_ROUTE: Route[] = [
 ];
 
 @NgModule({
-  declarations: [SignUpComponent, LoginComponent, ForgotPasswordComponent],
-  imports: [CommonModule, RouterModule.forChild(AUTH_ROUTE)],
+  declarations: [SignUpComponent, LoginComponent, ForgotPasswordComponent,],
+  imports: [CommonModule, RouterModule.forChild(AUTH_ROUTE),
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatIconModule,
+  ],
   exports: [SignUpComponent, LoginComponent, ForgotPasswordComponent],
 })
 export class AuthenticationModule {}

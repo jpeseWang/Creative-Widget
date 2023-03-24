@@ -3,25 +3,14 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { AdminGuard } from './guards';
-import { IsLoggedInGuard } from './guards/is-logged-in.guard';
+import { AdminGuard, IsLoggedInGuard } from '../guard';
 import { throwIfAlreadyLoaded } from './module-import-guard';
-import { ApiService, AuthService, NavigationService, ReportService } from './services';
-import { ContentManagementService } from './services/content-management.service';
-import { HelperService } from './services/helper.service';
-import { NotificationService } from './services/notification.service';
-import { UserManagementService } from './services/user-management.service';
+import { ApiService, AuthService } from './services';
 export const CORE_PROVIDERS = [
   IsLoggedInGuard,
   AdminGuard,
   ApiService,
   AuthService,
-  NavigationService,
-  UserManagementService,
-  ContentManagementService,
-  NotificationService,
-  HelperService,
-  ReportService
 ];
 
 export const CORE_MODULES = [CommonModule, NgxPermissionsModule, MatSnackBarModule, MatDialogModule];

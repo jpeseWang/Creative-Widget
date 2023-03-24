@@ -5,8 +5,7 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { AuthService, NavigationService } from '../services';
-import { NotificationService } from '../services/notification.service';
+import { AuthService, NavigationService, NotificationService } from '../configurations/services';
 @Injectable()
 export class AdminGuard implements CanActivate {
   constructor(

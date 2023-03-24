@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { AuthService, NavigationService } from '../services';
+import { AuthService, NavigationService } from '../configurations/services';
 
 @Injectable()
 export class IsLoggedInGuard implements CanActivate {
@@ -18,7 +18,7 @@ export class IsLoggedInGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const currentUser = this.authService.currentUserValue;
-    const isExpired = this.helper.isTokenExpired(currentUser?.token?.refreshToken)
+    const isExpired = this.helper.isTokenExpired(currentUser?.token?.refreshToken);
 
     if (isExpired) {
       // localStorage.removeItem('currentUser');
