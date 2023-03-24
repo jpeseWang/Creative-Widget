@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { remotesAppPageRoute } from './remotes-app-page.routes';
 import { RemotesAppPageComponent } from './remotes-app-page.component';
 import { AppLayoutModule } from '@cwp/shared/layout';
-import { PageSettingComponent } from './page/page-setting/page-setting.component';
+import { PageEditingComponent } from './page/page-editing/page-editing.component';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import { PageSettingComponent } from './page/page-setting/page-setting.component
     AppLayoutModule,
     RouterModule.forChild(remotesAppPageRoute),
   ],
-  declarations: [RemotesAppPageComponent, PageSettingComponent],
+  declarations: [RemotesAppPageComponent, PageEditingComponent],
   exports: [RemotesAppPageComponent],
 })
 export class RemotesAppPageModule {}

@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppHeaderComponent {
     
-  showMenu = false;
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() { }
 }

@@ -4,3 +4,7 @@
 @import 'tailwindcss/utilities';
 
 a:hover { text-decoration: none; }
+
+.collapse {
+    visibility: visible;
+}

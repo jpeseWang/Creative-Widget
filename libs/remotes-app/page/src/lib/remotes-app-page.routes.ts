@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
 import { RemotesAppPageComponent } from './remotes-app-page.component';
 import { PageComponent } from './page/page/page.component';
-import { PageSettingComponent } from './page/page-setting/page-setting.component';
+import { PageEditingComponent } from './page/page-editing/page-editing.component';
 
 export const remotesAppPageRoute: Route[] = [
   {
@@ -13,8 +13,8 @@ export const remotesAppPageRoute: Route[] = [
         component: PageComponent
       },
       {
-        path:'setting',
-        component: PageSettingComponent
+        path:'editing',
+        component: PageEditingComponent
       }
     ]
   }
