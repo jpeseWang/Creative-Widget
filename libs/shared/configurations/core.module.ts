@@ -3,7 +3,7 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { AdminGuard, IsLoggedInGuard } from '../guard';
+import { AdminGuard, IsLoggedInGuard } from '@cwp/shared/guard';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { ApiService, AuthService } from './services';
 export const CORE_PROVIDERS = [

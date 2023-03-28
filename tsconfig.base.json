@@ -30,8 +30,14 @@
       "@cwp/remotes-app/webpage": ["libs/remotes-app/webpage/src/index.ts"],
       "@cwp/shared/constants": ["libs/shared/constants/src/index.ts"],
       "@cwp/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@cwp/shared/guard": ["libs/shared/guard/src/index.ts"],
+      "@cwp/shared/interceptors": ["libs/shared/interceptors/src/index.ts"],
+      "@cwp/shared/configurations/services": ["libs/shared/configurations/services/index.ts"],
       "@cwp/shared/layout": ["libs/shared/layout/src/index.ts"],
-      "@cwp/shared/model": ["libs/shared/model/src/index.ts"],
+      "@cwp/shared/model/response": ["libs/shared/model/src/response-model/index.ts"],
+      "@cwp/shared/model/request": ["libs/shared/model/src/request-model/index.ts"],
+      "@cwp/shared/model/view-model": ["libs/shared/model/src/view-model/index.ts"],
+      "@cwp/shared/model/mapper": ["libs/shared/model/src/mapper/index.ts"],
       "@cwp/shared/pages/error-page": [
         "libs/shared/pages/error-page/src/index.ts"
       ],

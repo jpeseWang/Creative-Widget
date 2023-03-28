@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { API_URL } from '../endpoints';
-import { HttpErrorResponse } from '../model';
+import { HttpErrorResponse } from '@cwp/shared/model/response';
 import { NotificationService } from './notification.service';
 
 @Injectable()

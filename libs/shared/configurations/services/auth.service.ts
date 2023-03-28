@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { ApiService } from '.';
-import { TokenModel, UserProfileModel } from '../model';
+import { TokenModel, UserProfileModel } from '@cwp/shared/model/response';
 
 export interface ApplicationUser {
   token: TokenModel;

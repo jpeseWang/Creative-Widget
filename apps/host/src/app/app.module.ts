@@ -9,7 +9,7 @@ import { JwtHelperService, JwtInterceptor, JWT_OPTIONS } from '@auth0/angular-jw
 import { CwpButtonModule } from '@cwp/shared/ui/button';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { CoreModule } from '../../../../libs/shared/configurations/core.module';
-import { ErrorInterceptor } from '../../../../libs/shared/interceptors/error.interceptor';
+import { ErrorInterceptor } from '@cwp/shared/interceptors';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { AppLayoutModule } from '@cwp/shared/layout';
