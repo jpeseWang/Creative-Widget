@@ -13,8 +13,10 @@ import { ErrorInterceptor } from '../../../../libs/shared/interceptors/error.int
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { AppLayoutModule } from '@cwp/shared/layout';
+import { AboutUsComponent } from './applications/pages/about-us/about-us.component';
+import { FeaturesComponent } from './applications/pages/features/features.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AboutUsComponent, FeaturesComponent],
   imports: [
     BrowserModule,
     AppLayoutModule,

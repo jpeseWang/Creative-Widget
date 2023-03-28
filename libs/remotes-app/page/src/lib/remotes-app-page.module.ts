@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { remotesAppPageRoute } from './remotes-app-page.routes';
 import { RemotesAppPageComponent } from './remotes-app-page.component';
 import { AppLayoutModule } from '@cwp/shared/layout';
-import { PageEditingComponent } from './page/page-editing/page-editing.component';
 
 @NgModule({
   imports: [
@@ -12,7 +11,7 @@ import { PageEditingComponent } from './page/page-editing/page-editing.component
     AppLayoutModule,
     RouterModule.forChild(remotesAppPageRoute),
   ],
-  declarations: [RemotesAppPageComponent, PageEditingComponent],
+  declarations: [RemotesAppPageComponent],
   exports: [RemotesAppPageComponent],
 })
 export class RemotesAppPageModule {}

@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { AppLayoutModule } from '@cwp/shared/layout';
 import { PageContainerComponent } from '../../containers/page-container/page-container.component';
 
-const COMPONENT = [PageComponent, PageContainerComponent];
 @NgModule({
   imports: [
     CommonModule,
@@ -14,7 +13,7 @@ const COMPONENT = [PageComponent, PageContainerComponent];
       { path: '', component: PageComponent }
     ]),
   ],
-  declarations: [COMPONENT],
-  exports: [COMPONENT],
+  declarations: [PageContainerComponent,PageComponent],
+  exports: [PageContainerComponent,PageComponent],
 })
 export class PageModule {}

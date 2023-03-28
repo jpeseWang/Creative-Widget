@@ -12,7 +12,6 @@ import { AppLayoutModule } from '@cwp/shared/layout';
   imports: [CommonModule, AppLayoutModule, RouterModule.forChild(remotesAppMarketplaceRoutes)],
   declarations: [
     RemotesAppMarketplaceComponent,
-    
     MarketplaceComponent,
     ComponentDetailComponent,
     PaymentComponent,

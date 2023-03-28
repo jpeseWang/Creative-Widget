@@ -1,7 +1,5 @@
 import { Route } from '@angular/router';
 import { RemotesAppPageComponent } from './remotes-app-page.component';
-import { PageComponent } from './page/page/page.component';
-import { PageEditingComponent } from './page/page-editing/page-editing.component';
 
 export const remotesAppPageRoute: Route[] = [
   {
@@ -10,11 +8,11 @@ export const remotesAppPageRoute: Route[] = [
     children: [
       {
         path:'',
-        component: PageComponent
+        loadChildren: () => import('./page/page/page.module').then(m => m.PageModule)
       },
       {
         path:'editing',
-        component: PageEditingComponent
+        loadChildren: () => import('./page/page-editing/page-editing.module').then(m => m.PageEditingModule)
       }
     ]
   }
