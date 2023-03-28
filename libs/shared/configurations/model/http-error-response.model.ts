@@ -4,3 +4,4 @@ export interface HttpErrorResponse {
   statusCode: number;
   timestamp: Date;
 }
+// TODO: Linh: move this to shared/model

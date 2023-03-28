@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { convertMessage } from '../../utils/convert-error-message';
 import { API_URL } from '../endpoints';
 import { HttpErrorResponse } from '../model';
 import { NotificationService } from './notification.service';
@@ -80,7 +79,7 @@ export class ApiService {
     requestUrl?: string,
     hideErrorMessage: boolean = true
   ) {
-    let errMessage = convertMessage(response.messageCode);
+    let errMessage = 'Error'
     //
     if (response.statusCode === 403) {
       return throwError(response.messageCode);
