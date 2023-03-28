@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../../../../../libs/shared/configurations/services';
+import { AuthService } from '@cwp/shared/configurations/services';
 
 @Component({
   selector: 'cwp-sign-up',

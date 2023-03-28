@@ -3,9 +3,6 @@ export enum Pages {
   DASHBOARD = 'dashboard',
   ERROR = 'error',
   AUTH = 'auth',
-
-
-  //  admin
   ANALYTIC = 'analytic',
   USER_MANAGEMENT = 'user-management',
   BILLING_MANAGEMENT = 'billing-management',

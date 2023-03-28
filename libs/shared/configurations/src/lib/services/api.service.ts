@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { API_URL } from '../endpoints';
+import { API_URL } from '@cwp/shared/configurations/endpoint';
 import { HttpErrorResponse } from '@cwp/shared/model/response';
 import { NotificationService } from './notification.service';
 
@@ -79,7 +79,7 @@ export class ApiService {
     requestUrl?: string,
     hideErrorMessage: boolean = true
   ) {
-    let errMessage = 'Error'
+    const errMessage = 'Error'
     //
     if (response.statusCode === 403) {
       return throwError(response.messageCode);

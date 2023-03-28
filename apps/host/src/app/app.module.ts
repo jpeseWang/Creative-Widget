@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { JwtHelperService, JwtInterceptor, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { CwpButtonModule } from '@cwp/shared/ui/button';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { CoreModule } from '../../../../libs/shared/configurations/core.module';
+// import { CoreModule } from '../../../../libs/shared/configurations/core.module';
 import { ErrorInterceptor } from '@cwp/shared/interceptors';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
@@ -24,7 +24,7 @@ import { FeaturesComponent } from './applications/pages/features/features.compon
     CwpButtonModule,
     HttpClientModule,
     NgxPermissionsModule.forRoot(),
-    CoreModule.forRoot(),
+    // CoreModule.forRoot(), // TODO: fix here
     FormsModule,
   ],
   providers: [
