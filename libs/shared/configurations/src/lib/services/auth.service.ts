@@ -123,4 +123,17 @@ export class AuthService {
         }
       }));
   }
+
+  signUp(email: string, password: string) {
+    return this.apiServices.post<any>('auth/register', { email, password }, true).pipe(map((auth) => {
+      if (auth.data) {
+        localStorage.setItem('currentUser', JSON.stringify(auth.data));
+        localStorage.setItem('token', auth.data.token.accessToken);
+        localStorage.setItem('refreshToken', auth.data.token.refreshToken);
+        this.currentUserSubject.next(auth.data);
+        return auth.data;
+      }
+    })
+    );
+  }
 }

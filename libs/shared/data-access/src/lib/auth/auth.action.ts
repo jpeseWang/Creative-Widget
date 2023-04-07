@@ -23,6 +23,8 @@ export const authAction = {
     props<{ error: any; }>()
   ),
 
+  logOutUser: createAction('[Auth] Log Out User'),
+
   getUserProfile: createAction('[Auth] Get User Profile'),
   getUserProfileSuccess: createAction(
     '[Auth] Get User Profile Success',
@@ -30,6 +32,20 @@ export const authAction = {
   ),
   getUserProfileError: createAction(
     '[Auth] Get User Profile Error',
+    props<{ error: any; }>()
+  ),
+
+  signUpUser: createAction('[Auth] Sign Up User',
+    props<{ email: string; password: string; }>()
+  ),
+
+  signUpUserSuccess: createAction(
+    '[Auth] Sign Up User Success',
+    props<{ userProfile: UserProfileModel; token: string; isAuthenticated: boolean; }>()
+  ),
+
+  signUpUserFailure: createAction(
+    '[Auth] Sign Up User Error',
     props<{ error: any; }>()
   ),
 

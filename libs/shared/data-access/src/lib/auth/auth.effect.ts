@@ -49,6 +49,37 @@ export class AuthEffect {
   }
   );
 
+  logOutUser$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(authAction.logOutUser),
+      tap(() => {
+        this.authService.logout();
+      })
+    );
+  }, { dispatch: false });
+
+  signUpUser$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(authAction.signUpUser),
+      switchMap((action) => {
+        return this.authService.signUp(action.email, action.password).pipe(
+          map((res: any) => {
+            const userProfile = res?.user;
+            const token = res?.token;
+            return authAction.signUpUserSuccess({ userProfile, token, isAuthenticated: true });
+          }),
+          catchError((error) => of(authAction.signUpUserFailure({ error }))),
+          tap((userProfile) => of(userProfile
+            ? this.router.navigate(['/'])
+            : this.router.navigate(['/auth/login'])
+          )),
+        );
+      })
+    );
+  }
+  );
+
+
   // getUserProfile$ = createEffect(() =>
   //   this.actions$.pipe(
   //     ofType(authAction.getUserProfile),

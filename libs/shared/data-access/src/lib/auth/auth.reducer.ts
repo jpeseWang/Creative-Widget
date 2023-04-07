@@ -56,4 +56,49 @@ export const authReducer = createReducer(
       userProfile,
     };
   }),
+
+  on(authAction.loginUserFailure, (state): AuthState => {
+    return {
+      ...state,
+    };
+  }),
+
+  on(authAction.logOutUser, (state): AuthState => {
+    sessionStorage.removeItem('userProfile');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('isAuthenticated');
+
+    return {
+      ...state,
+      isAuthenticated: false,
+      userProfile: null,
+    };
+  }),
+
+  on(authAction.signUpUser, (state): AuthState => {
+    return {
+      ...state,
+    };
+  }),
+
+  on(authAction.signUpUserSuccess, (state, { userProfile, token, isAuthenticated }): AuthState => {
+    console.log('signUpUserSuccess', userProfile);
+    // Save userProfile to session storage
+    sessionStorage.setItem('userProfile', JSON.stringify(userProfile));
+    sessionStorage.setItem('token', JSON.stringify(token));
+    sessionStorage.setItem('isAuthenticated', JSON.stringify(isAuthenticated));
+
+    return {
+      ...state,
+      isAuthenticated: true,
+      userProfile,
+    };
+  }),
+
+  on(authAction.signUpUserFailure, (state): AuthState => {
+    return {
+      ...state,
+    };
+  })
+
 );

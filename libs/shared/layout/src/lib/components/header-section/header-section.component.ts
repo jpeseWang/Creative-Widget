@@ -2,7 +2,8 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AuthState } from '../../../../../../../libs/shared/data-access/src/lib/auth';
+import { map, Observable } from 'rxjs';
+import { authAction, AuthState } from '../../../../../../../libs/shared/data-access/src/lib/auth';
 import { selectUserProfile } from '../../../../../data-access/src/lib/auth/auth.selector';
 import { UserProfileModel } from '../../../../../model/src/response-model';
 
@@ -13,25 +14,22 @@ import { UserProfileModel } from '../../../../../model/src/response-model';
 })
 export class HeaderSectionComponent {
 
-  userProfile: UserProfileModel | null = null;
-
-  isAuthenticated = false;
+  userProfile$: Observable<UserProfileModel | null>; // Replace `any` with the type of your user profile data
+  isAuthenticated$: Observable<boolean>;
 
   constructor(
     // private authService: AuthService,
     private store: Store<AuthState>,
     private router: Router
   ) {
-    console.log('123123', this.isAuthenticated);
-    this.store.select(selectUserProfile).subscribe((userProfile) => {
-      // console.log('Header Section', userProfile);
-      this.userProfile = userProfile;
-      this.isAuthenticated = userProfile !== null;
-      console.log('Header Section', this.isAuthenticated);
-      // Use the userProfile data as needed in your component
-    });
+    this.userProfile$ = this.store.select(selectUserProfile);
+    this.isAuthenticated$ = this.userProfile$.pipe(map(userProfile => userProfile !== null));
   }
 
   @Input() bgGray = false;
   showMenu = false;
+
+  logOut(): void {
+    this.store.dispatch(authAction.logOutUser());
+  }
 }

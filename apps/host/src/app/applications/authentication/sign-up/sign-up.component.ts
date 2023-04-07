@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { authAction, AuthState } from '../../../../../../../libs/shared/data-access/src/lib/auth';
 
 @Component({
   selector: 'cwp-sign-up',
@@ -24,18 +26,30 @@ export class SignUpComponent {
       Validators.min(6)]),
   });
   constructor(
+    private store: Store<AuthState>,
     private router: Router
   ) {}
 
-  login() {
+  register() {
     this.registerForm.get('email')?.status === 'INVALID' ? this.isValidEmail = false : this.isValidEmail = true;
     this.registerForm.get('password')?.status === 'INVALID' ? this.isValidPassword = false : this.isValidPassword = true;
     this.registerForm.get('confirmPassword')?.status === 'INVALID' ? this.isValidConfirmPassword = false : this.isValidConfirmPassword = true;
 
 
+    console.log(this.registerForm.value);
+
     if (!this.isValidEmail || !this.isValidPassword || !this.isValidConfirmPassword) {
       return;
     }
+
+    if (this.registerForm.value.password !== this.registerForm.value.confirmPassword) {
+      return;
+    }
+
+    this.store.dispatch(authAction.signUpUser({
+      email: this.registerForm.value.email?.toString() || "",
+      password: this.registerForm.value.password?.toString() || "",
+    }));
 
     // this.authService.(this.registerForm.value.email!, this.registerForm.value.password!).subscribe(
     //   () => {
