@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '@cwp/shared/configurations/services';
 
 @Component({
   selector: 'cwp-sign-up',
@@ -25,7 +24,6 @@ export class SignUpComponent {
       Validators.min(6)]),
   });
   constructor(
-    private authService: AuthService,
     private router: Router
   ) {}
 

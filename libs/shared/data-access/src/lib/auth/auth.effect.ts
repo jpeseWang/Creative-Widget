@@ -1,32 +1,49 @@
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import {
-  filter, mapTo,
-  switchMap,
-  take,
-  tap
-} from 'rxjs/operators';
+import { map, switchMap } from 'rxjs';
+import { authAction } from '.';
+import { AppState } from '..';
+import { AuthService } from '../../../../configurations/src/lib/services';
 
-import { authAction } from './auth.action';
 
 @Injectable()
 export class AuthEffect {
-  checkAuthentication$ = createEffect(() => {
-    return this.authService.user$.pipe(
-      filter((user) => !!user),
-      switchMap((user: User) =>
-        this.authService.getAccessTokenSilently().pipe(
-          take(1),
-          tap((token) => localStorage.setItem('token', token)),
-          mapTo(user)
-        )
-      ),
-      switchMap((user: User) => [
-        authAction.getUserProfile(),
-      ])
+  // checkAuthentication$ = createEffect(() => {
+  //   return this.authService.user$.pipe(
+  //     filter((user) => !!user),
+  //     switchMap((user: User) =>
+  //       this.authService.getAccessTokenSilently().pipe(
+  //         take(1),
+  //         tap((token) => localStorage.setItem('token', token)),
+  //         mapTo(user)
+  //       )
+  //     ),
+  //     switchMap((user: User) => [
+  //       authAction.getUserProfile(),
+  //     ])
+  //   );
+  // });
+  loginUser$ = createEffect(() => {
+
+    console.log('vao day');
+    return this.actions$.pipe(
+      ofType(authAction.loginUser),
+      switchMap((action) => {
+        return this.authService.login(action.email, action.password).pipe(
+          map((res: any) => {
+            const userProfile = res?.data?.getUserProfileByAuth0Id;
+            console.log(userProfile);
+            return userProfile;
+          }
+
+          )
+
+        );
+      })
     );
-  });
+  }
+  );
 
   // getUserProfile$ = createEffect(() =>
   //   this.actions$.pipe(
@@ -138,13 +155,12 @@ export class AuthEffect {
   //       );
   //     })
   //   )
-  );
+  // );
 
   constructor(
     private actions$: Actions,
-    private readonly authService: AuthService,
-    private userService: UserProfileService,
-    private dialog: MatDialog,
+
+    private authService: AuthService,
     private store: Store<AppState>
   ) {}
 }

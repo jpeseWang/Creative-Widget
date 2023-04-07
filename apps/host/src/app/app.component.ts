@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from '../../../../libs/shared/configurations/environments/environment';
 @Component({
   selector: 'cwp-root',
   templateUrl: './app.component.html'

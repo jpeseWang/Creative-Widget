@@ -4,9 +4,9 @@
  */
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenModel, UserProfileModel } from '@cwp/shared/model/response';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { ApiService } from '.';
-import { TokenModel, UserProfileModel } from '@cwp/shared/model/response';
 
 export interface ApplicationUser {
   token: TokenModel;
@@ -18,6 +18,8 @@ export interface ApplicationUser {
 })
 export class AuthService {
 
+
+  user$: Observable<UserProfileModel> = this.apiServices.get<UserProfileModel>('auth/user');
   private currentUserSubject: BehaviorSubject<ApplicationUser>;
   public currentUser: Observable<ApplicationUser>;
 
@@ -69,6 +71,33 @@ export class AuthService {
 
   refreshToken() {
     return this.apiServices.post<any>(`auth/refresh-token`, null, true)
+      .pipe(map((auth) => {
+        if (auth.data) {
+          localStorage.removeItem('currentUser');
+          localStorage.removeItem('token');
+          localStorage.removeItem('refreshToken');
+          const refreshUser: ApplicationUser = {
+            token: {
+              accessToken: auth.data.accessToken,
+              refreshToken: auth.data.refreshToken,
+              expiresIn: 3600,
+            },
+            user: {
+              email: this.currentUserValue.user?.email!,
+              role: this.currentUserValue.user?.role!,
+            }
+          };
+          localStorage.setItem('token', auth.data.accessToken);
+          localStorage.setItem('refreshToken', auth.data.refreshToken);
+          localStorage.setItem('currentUser', JSON.stringify(refreshUser));
+          this.currentUserSubject.next(refreshUser);
+          return auth.data.accessToken;
+        }
+      }));
+  }
+
+  getAccessTokenSilently() {
+    return this.apiServices.get<any>(`auth/refresh-token`, true)
       .pipe(map((auth) => {
         if (auth.data) {
           localStorage.removeItem('currentUser');

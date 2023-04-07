@@ -1,17 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
-import { JwtHelperService, JwtInterceptor, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { CwpButtonModule } from '@cwp/shared/ui/button';
-import { NgxPermissionsModule } from 'ngx-permissions';
-// import { CoreModule } from '../../../../libs/shared/configurations/core.module';
-import { ConfigurationsModule } from '@cwp/shared/configurations';
-import { ErrorInterceptor } from '@cwp/shared/interceptors';
 import { AppLayoutModule } from '@cwp/shared/layout';
+import { StoreModule } from '@ngrx/store';
+import { NgxPermissionsModule } from 'ngx-permissions';
+import { appReducers, metaReducers } from '../../../../libs/shared/data-access/src/lib';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { AboutUsComponent } from './applications/pages/about-us/about-us.component';
@@ -19,30 +14,35 @@ import { FeaturesComponent } from './applications/pages/features/features.compon
 @NgModule({
   declarations: [AppComponent, AboutUsComponent, FeaturesComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppLayoutModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    CwpButtonModule,
-    HttpClientModule,
     NgxPermissionsModule.forRoot(),
-    ConfigurationsModule.forRoot(), // TODO: fix here
-    FormsModule,
+    // ConfigurationsModule.forRoot(), // TODO: fix here
+    StoreModule.forRoot(appReducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      },
+    }),
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true,
-    },
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true,
-    },
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }
-  ],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: JwtInterceptor,
+  //     multi: true,
+  //   },
+  //   { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+  //   JwtHelperService,
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: ErrorInterceptor,
+  //     multi: true,
+  //   },
+  //   { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }
+  // ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

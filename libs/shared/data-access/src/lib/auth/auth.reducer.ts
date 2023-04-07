@@ -1,11 +1,11 @@
+import { UserProfileModel } from '@cwp/shared/model/response';
 import { createReducer, on } from '@ngrx/store';
 
-import { UserProfileModel } from 'libs/shared/configurations/model/user.model';
 import { authAction } from './auth.action';
 
 export interface AuthState {
   isAuthenticated: boolean;
-  userProfile: UserProfileModel;
+  userProfile: UserProfileModel | null;
 }
 
 const initialState: AuthState = {
@@ -27,5 +27,12 @@ export const authReducer = createReducer(
       isAuthenticated: true,
       userProfile,
     };
-  })
+  }),
+
+  on(authAction.loginUser, (state): AuthState => {
+    return {
+      ...state,
+    };
+  }),
+
 );

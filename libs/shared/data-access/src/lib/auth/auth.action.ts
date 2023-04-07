@@ -1,5 +1,5 @@
+import { UserProfileModel } from '@cwp/shared/model/response';
 import { createAction, props } from '@ngrx/store';
-import { UserProfileModel } from 'libs/shared/configurations/model/user.model';
 
 
 export const authAction = {
@@ -8,14 +8,19 @@ export const authAction = {
   //   props<{ auth0Profile: User }>()
   // ),
 
+  loginUser: createAction('[Auth] Login User',
+
+    props<{ email: string; password: string; }>()
+  ),
+
   getUserProfile: createAction('[Auth] Get User Profile'),
   getUserProfileSuccess: createAction(
     '[Auth] Get User Profile Success',
-    props<{ userProfile: UserProfileModel }>()
+    props<{ userProfile: UserProfileModel; }>()
   ),
   getUserProfileError: createAction(
     '[Auth] Get User Profile Error',
-    props<{ error: any }>()
+    props<{ error: any; }>()
   ),
 
   // updateUserProfile: createAction(

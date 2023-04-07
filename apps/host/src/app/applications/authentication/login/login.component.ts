@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '@cwp/shared/configurations/services';
+import { Store } from '@ngrx/store';
+import { authAction, AuthState } from '../../../../../../../libs/shared/data-access/src/lib/auth';
 @Component({
   selector: 'cwp-login',
   templateUrl: './login.component.html',
@@ -20,7 +21,8 @@ export class LoginComponent {
       Validators.min(6)]),
   });
   constructor(
-    private authService: AuthService,
+    // private authService: AuthService,
+    private store: Store<AuthState>,
     private router: Router
   ) {}
 
@@ -33,11 +35,16 @@ export class LoginComponent {
       return;
     }
 
-    this.authService.login(this.loginForm.value.email!, this.loginForm.value.password!).subscribe(
-      () => {
-        this.router.navigate(['/']);
-      }
-    );;
+    console.log(this.loginForm.value);
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    this.store.dispatch(authAction.loginUser({ email: this.loginForm.value.email!, password: this.loginForm.value.password! }));
+
+    // this.authService.login(this.loginForm.value.email!, this.loginForm.value.password!).subscribe(
+    //   () => {
+    //     this.router.navigate(['/']);
+    //   }
+    // );;
   }
 
 }
