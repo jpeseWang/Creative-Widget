@@ -15,7 +15,7 @@ export const authAction = {
 
   loginUserSuccess: createAction(
     '[Auth] Login User Success',
-    props<{ userProfile: UserProfileModel; }>()
+    props<{ userProfile: UserProfileModel; token: string; isAuthenticated: boolean; }>()
   ),
 
   loginUserFailure: createAction(

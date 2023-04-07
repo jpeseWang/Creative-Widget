@@ -40,6 +40,11 @@ export class LoginComponent {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.store.dispatch(authAction.loginUser({ email: this.loginForm.value.email!, password: this.loginForm.value.password! }));
 
+    // this.store.select(selectUserProfile).subscribe((userProfile) => {
+    //   console.log('User profile:', userProfile);
+    //   // Use the userProfile data as needed in your component
+    // });
+
     // this.authService.login(this.loginForm.value.email!, this.loginForm.value.password!).subscribe(
     //   () => {
     //     this.router.navigate(['/']);

@@ -33,9 +33,10 @@ export class AuthEffect {
         return this.authService.login(action.email, action.password).pipe(
           map((res: any) => {
             const userProfile = res?.user;
+            const token = res?.token;
             console.log(res);
             console.log('userProfile', userProfile);
-            return authAction.loginUserSuccess({ userProfile });
+            return authAction.loginUserSuccess({ userProfile, token, isAuthenticated: true });
           }),
           catchError((error) => of(authAction.loginUserFailure({ error }))),
           tap(() => {

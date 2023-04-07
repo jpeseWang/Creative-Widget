@@ -9,8 +9,6 @@ import { logger } from './meta-reducers/logger';
 
 export const appReducers: ActionReducerMap<AppState> = {
   auth: authReducer,
-
-
 };
 
 const storageSync = typeof window !== 'undefined' ? [storageSyncReducer] : [];
