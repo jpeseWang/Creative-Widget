@@ -44,6 +44,7 @@ export class AuthService {
         localStorage.setItem('token', auth.data.token.accessToken);
         localStorage.setItem('refreshToken', auth.data.token.refreshToken);
         this.currentUserSubject.next(auth.data);
+        return auth.data;
       }
     })
     );

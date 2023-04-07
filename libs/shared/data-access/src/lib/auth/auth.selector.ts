@@ -1,9 +1,10 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createSelector } from '@ngrx/store';
 
 import { UserProfileModel } from '@cwp/shared/model/response';
 import { AuthState } from '.';
+import { AppState } from '..';
 
-export const selectAuthState = createFeatureSelector<AuthState>('auth');
+const selectAuthState = (state: AppState) => state.auth;
 
 export const selectUserProfile = createSelector(
   selectAuthState,

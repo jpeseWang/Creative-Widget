@@ -1,12 +1,17 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { RouterModule } from '@angular/router';
 import { AppLayoutModule } from '@cwp/shared/layout';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { ConfigurationsModule } from '../../../../libs/shared/configurations/src';
+import { AuthService } from '../../../../libs/shared/configurations/src/lib/services';
 import { appReducers, metaReducers } from '../../../../libs/shared/data-access/src/lib';
+import { AuthEffect } from '../../../../libs/shared/data-access/src/lib/auth';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { AboutUsComponent } from './applications/pages/about-us/about-us.component';
@@ -19,7 +24,11 @@ import { FeaturesComponent } from './applications/pages/features/features.compon
     AppLayoutModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     NgxPermissionsModule.forRoot(),
-    // ConfigurationsModule.forRoot(), // TODO: fix here
+    HttpClientModule,
+    ConfigurationsModule.forRoot(), // TODO: fix here
+    EffectsModule.forRoot([
+      AuthEffect,
+    ]),
     StoreModule.forRoot(appReducers, {
       metaReducers,
       runtimeChecks: {
@@ -28,6 +37,7 @@ import { FeaturesComponent } from './applications/pages/features/features.compon
       },
     }),
   ],
+  providers: [AuthService],
   // providers: [
   //   {
   //     provide: HTTP_INTERCEPTORS,

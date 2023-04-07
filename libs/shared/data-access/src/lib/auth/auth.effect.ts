@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { map, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { authAction } from '.';
 import { AppState } from '..';
 import { AuthService } from '../../../../configurations/src/lib/services';
@@ -25,20 +26,22 @@ export class AuthEffect {
   //   );
   // });
   loginUser$ = createEffect(() => {
-
     console.log('vao day');
     return this.actions$.pipe(
       ofType(authAction.loginUser),
       switchMap((action) => {
         return this.authService.login(action.email, action.password).pipe(
           map((res: any) => {
-            const userProfile = res?.data?.getUserProfileByAuth0Id;
-            console.log(userProfile);
-            return userProfile;
-          }
-
-          )
-
+            const userProfile = res?.user;
+            console.log(res);
+            console.log('userProfile', userProfile);
+            return authAction.loginUserSuccess({ userProfile });
+          }),
+          catchError((error) => of(authAction.loginUserFailure({ error }))),
+          tap(() => {
+            // Navigate to dashboard here
+            this.router.navigate(['/']);
+          }),
         );
       })
     );
@@ -161,6 +164,8 @@ export class AuthEffect {
     private actions$: Actions,
 
     private authService: AuthService,
+
+    private router: Router,
     private store: Store<AppState>
   ) {}
 }

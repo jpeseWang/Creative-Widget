@@ -13,6 +13,16 @@ export const authAction = {
     props<{ email: string; password: string; }>()
   ),
 
+  loginUserSuccess: createAction(
+    '[Auth] Login User Success',
+    props<{ userProfile: UserProfileModel; }>()
+  ),
+
+  loginUserFailure: createAction(
+    '[Auth] Login User Error',
+    props<{ error: any; }>()
+  ),
+
   getUserProfile: createAction('[Auth] Get User Profile'),
   getUserProfileSuccess: createAction(
     '[Auth] Get User Profile Success',

@@ -1,7 +1,9 @@
 import { UserProfileModel } from '@cwp/shared/model/response';
-import { createReducer, on } from '@ngrx/store';
+import { createFeatureSelector, createReducer, createSelector, on } from '@ngrx/store';
 
 import { authAction } from './auth.action';
+
+export const AUTH_STORE_FEATURE_KEY = 'auth';
 
 export interface AuthState {
   isAuthenticated: boolean;
@@ -22,6 +24,9 @@ export const authReducer = createReducer(
     };
   }),
   on(authAction.getUserProfileSuccess, (state, { userProfile }): AuthState => {
+    // Save userProfile to session storage
+    sessionStorage.setItem('userProfile', JSON.stringify(userProfile));
+
     return {
       ...state,
       isAuthenticated: true,
@@ -35,4 +40,26 @@ export const authReducer = createReducer(
     };
   }),
 
+  on(authAction.loginUserSuccess, (state, { userProfile }): AuthState => {
+    console.log('loginUserSuccess', userProfile);
+    // Save userProfile to session storage
+    sessionStorage.setItem('userProfile', JSON.stringify(userProfile));
+
+    return {
+      ...state,
+      isAuthenticated: true,
+      userProfile,
+    };
+  }),
+);
+
+export const selectAuthState = createFeatureSelector<AuthState>('auth');
+export const selectToken = createSelector(
+  selectAuthState,
+  (state) => state.isAuthenticated
+);
+
+export const selectUser = createSelector(
+  selectAuthState,
+  (state) => state.userProfile
 );
