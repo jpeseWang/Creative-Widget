@@ -1,42 +1,32 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { forkJoin, of } from 'rxjs';
 import {
-  catchError,
-  filter,
-  map,
-  mapTo,
+  filter, mapTo,
   switchMap,
   take,
-  tap,
-  withLatestFrom,
+  tap
 } from 'rxjs/operators';
 
-import { authSelector } from '.';
 import { authAction } from './auth.action';
 
 @Injectable()
 export class AuthEffect {
-  // checkAuthentication$ = createEffect(() => {
-  //   return this.authService.user$.pipe(
-  //     filter((user) => !!user),
-  //     switchMap((user: User) =>
-  //       this.authService.getAccessTokenSilently().pipe(
-  //         take(1),
-  //         tap((token) => localStorage.setItem('token', token)),
-  //         mapTo(user)
-  //       )
-  //     ),
-  //     switchMap((user: User) => [
-  //       authAction.checkAuthenticationWithAuth0Success({
-  //         auth0Profile: user,
-  //       }),
-  //       authAction.getUserProfile(),
-  //       organizationTypeAction.getOrganizationTypes(),
-  //     ])
-  //   );
-  // });
+  checkAuthentication$ = createEffect(() => {
+    return this.authService.user$.pipe(
+      filter((user) => !!user),
+      switchMap((user: User) =>
+        this.authService.getAccessTokenSilently().pipe(
+          take(1),
+          tap((token) => localStorage.setItem('token', token)),
+          mapTo(user)
+        )
+      ),
+      switchMap((user: User) => [
+        authAction.getUserProfile(),
+      ])
+    );
+  });
 
   // getUserProfile$ = createEffect(() =>
   //   this.actions$.pipe(

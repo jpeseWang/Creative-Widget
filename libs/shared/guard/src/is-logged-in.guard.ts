@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { AuthService, NavigationService } from '../configurations/services';
+import { AuthService, NavigationService } from '@cwp/shared/configurations/services';
 
 @Injectable()
 export class IsLoggedInGuard implements CanActivate {

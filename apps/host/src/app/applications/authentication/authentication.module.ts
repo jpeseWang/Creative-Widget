@@ -40,6 +40,6 @@ const AUTH_ROUTE: Route[] = [
     FormsModule,
     MatIconModule,
   ],
-  exports: [SignUpComponent, LoginComponent, ForgotPasswordComponent],
+  exports: [SignUpComponent, LoginComponent, ForgotPasswordComponent, RouterModule],
 })
 export class AuthenticationModule {}
