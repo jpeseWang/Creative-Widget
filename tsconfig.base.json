@@ -22,6 +22,9 @@
         "libs/remotes-app/customer-support/src/index.ts"
       ],
       "@cwp/remotes-app/dashboard": ["libs/remotes-app/dashboard/src/index.ts"],
+      "@cwp/remotes-app/design-system": [
+        "libs/remotes-app/design-system/src/index.ts"
+      ],
       "@cwp/remotes-app/home": ["libs/remotes-app/home/src/index.ts"],
       "@cwp/remotes-app/marketplace": [
         "libs/remotes-app/marketplace/src/index.ts"
@@ -29,10 +32,12 @@
       "@cwp/remotes-app/page": ["libs/remotes-app/page/src/index.ts"],
       "@cwp/remotes-app/webpage": ["libs/remotes-app/webpage/src/index.ts"],
       "@cwp/shared/configurations": ["libs/shared/configurations/src/index.ts"],
+      "@cwp/shared/configurations/endpoint": [
+        "libs/shared/configurations/src/lib/endpoint.ts"
+      ],
       "@cwp/shared/configurations/services": [
         "libs/shared/configurations/src/lib/services/index.ts"
       ],
-      "@cwp/shared/configurations/endpoint": ["libs/shared/configurations/src/lib/endpoint.ts"],
       "@cwp/shared/constants": ["libs/shared/constants/src/index.ts"],
       "@cwp/shared/data-access": ["libs/shared/data-access/src/index.ts"],
       "@cwp/shared/guard": ["libs/shared/guard/src/index.ts"],

@@ -78,6 +78,11 @@ export const appRoutes: Route[] = [
         component: MaintenacePageComponent
     },
     {
+        path:'design-system',
+        canActivate: [],
+        loadChildren: () => import('@cwp/remotes-app/design-system').then(m => m.RemotesAppDesignSystemModule)
+    },
+    {
         path:':url',
         pathMatch:'full',
         loadChildren: () => import('@cwp/remotes-app/webpage').then(m => m.RemotesAppWebpageModule)
