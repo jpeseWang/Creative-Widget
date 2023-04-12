@@ -1,0 +1,23 @@
+.document-list {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.document-grid {
+  display: grid;
+}
+
+.document-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.document-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.document-title {
+  text-align: center;
+}
