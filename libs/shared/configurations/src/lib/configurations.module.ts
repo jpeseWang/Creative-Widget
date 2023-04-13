@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { AdminGuard, IsLoggedInGuard } from '@cwp/shared/guard';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { AdminGuard, IsLoggedInGuard } from './guard';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { ApiService, AuthService, NavigationService, NotificationService } from './services';
 

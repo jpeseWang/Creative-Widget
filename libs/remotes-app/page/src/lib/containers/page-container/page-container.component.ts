@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-interface Document {
+import { Router } from '@angular/router';
+interface Card {
   id: number;
   title: string;
+  description: string;
+  imageUrl: string;
 }
+
 
 @Component({
   selector: 'cwp-page-container',
@@ -10,15 +14,41 @@ interface Document {
   styleUrls: ['./page-container.component.scss'],
 })
 export class PageContainerComponent {
-  documents: Document[];
-  constructor() {
-    // Mock data for documents
-    this.documents = [
-      { id: 1, title: 'Document 1' },
-      { id: 2, title: 'Document 2' },
-      { id: 3, title: 'Document 3' },
-      { id: 4, title: 'Document 4' },
-      // Add more documents as needed
-    ];
+  cards: Card[] = [
+    {
+      id: 1,
+      title: 'Card 1',
+      description: 'This is the description for card 1',
+      imageUrl: 'https://via.placeholder.com/300'
+    },
+    {
+      id: 2,
+      title: 'Card 2',
+      description: 'This is the description for card 2',
+      imageUrl: 'https://via.placeholder.com/300'
+    },
+    {
+      id: 3,
+      title: 'Card 3',
+      description: 'This is the description for card 3',
+      imageUrl: 'https://via.placeholder.com/300'
+    },
+    {
+      id: 4,
+      title: 'Card 4',
+      description: 'This is the description for card 4',
+      imageUrl: 'https://via.placeholder.com/300'
+    }
+  ];
+  constructor(
+    private router: Router
+  ) {}
+
+  openNewPage(): void {
+    // window.open('https://www.google.com', '_blank');
+  }
+
+  openPage(id: number) {
+    this.router.navigate([`/page/${id}`]);
   }
 }

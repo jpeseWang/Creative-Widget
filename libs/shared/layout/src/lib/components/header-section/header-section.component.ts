@@ -1,10 +1,8 @@
-/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { map, Observable } from 'rxjs';
 import { authAction, AuthState } from '../../../../../../../libs/shared/data-access/src/lib/auth';
-import { selectUserProfile } from '../../../../../data-access/src/lib/auth/auth.selector';
+import { AuthService } from '../../../../../configurations/src/lib/services';
 import { UserProfileModel } from '../../../../../model/src/response-model';
 
 @Component({
@@ -14,16 +12,17 @@ import { UserProfileModel } from '../../../../../model/src/response-model';
 })
 export class HeaderSectionComponent {
 
-  userProfile$: Observable<UserProfileModel | null>; // Replace `any` with the type of your user profile data
-  isAuthenticated$: Observable<boolean>;
+  userProfile!: UserProfileModel | null;
+  isAuthenticated = false;
 
   constructor(
-    // private authService: AuthService,
+    private authService: AuthService,
     private store: Store<AuthState>,
     private router: Router
   ) {
-    this.userProfile$ = this.store.select(selectUserProfile);
-    this.isAuthenticated$ = this.userProfile$.pipe(map(userProfile => userProfile !== null));
+    // get from Session Storage
+    this.userProfile = this.authService.currentUserValue.user || null;
+    this.isAuthenticated = this.userProfile !== null;
   }
 
   @Input() bgGray = false;

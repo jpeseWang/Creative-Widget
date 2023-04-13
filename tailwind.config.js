@@ -9,7 +9,9 @@ module.exports = {
   theme: {
     extend: {},
   },
-  variants: {},
+  variants: {
+    animation: ({ after }) => after(['responsive', 'motion-safe', 'motion-reduce']),
+  },
   plugins: [
     require('@tailwindcss/forms'),
   ],
