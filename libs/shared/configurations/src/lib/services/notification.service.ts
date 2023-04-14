@@ -112,10 +112,8 @@ export class NotificationService {
     message: string,
     action: string,
     className = '',
-    duration = 1000
   ) {
     this.snackBar.open(message, action, {
-      duration: duration,
       panelClass: [className]
     });
   }

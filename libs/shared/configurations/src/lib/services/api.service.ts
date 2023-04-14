@@ -86,10 +86,7 @@ export class ApiService {
     }
     //
     if (response.statusCode === 500) {
-      if (!hideErrorMessage) {
-      }
-
-      // return throwError(response);
+      return throwError(response);
     }
 
     if (hideErrorMessage === false) {

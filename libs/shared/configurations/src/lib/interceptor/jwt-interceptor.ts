@@ -8,8 +8,8 @@ import {
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
-import { API_URL } from '@cwp/shared/configurations/endpoint';
-import { AuthService } from '@cwp/shared/configurations/services';
+import { API_URL } from '../endpoint';
+import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {

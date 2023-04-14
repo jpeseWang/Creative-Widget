@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { JwtHelperService, JwtInterceptor, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AppLayoutModule } from '@cwp/shared/layout';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { ConfigurationsModule } from '../../../../libs/shared/configurations/src';
-import { AuthService } from '../../../../libs/shared/configurations/src/lib/services';
+import { ErrorInterceptor } from '../../../../libs/shared/configurations/src/lib/interceptor';
 import { appReducers, metaReducers } from '../../../../libs/shared/data-access/src/lib';
 import { AuthEffect } from '../../../../libs/shared/data-access/src/lib/auth';
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import { FeaturesComponent } from './applications/pages/features/features.compon
     CommonModule,
     BrowserModule,
     AppLayoutModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     NgxPermissionsModule.forRoot(),
     HttpClientModule,
@@ -37,22 +40,21 @@ import { FeaturesComponent } from './applications/pages/features/features.compon
       },
     }),
   ],
-  providers: [AuthService],
-  // providers: [
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: JwtInterceptor,
-  //     multi: true,
-  //   },
-  //   { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-  //   JwtHelperService,
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: ErrorInterceptor,
-  //     multi: true,
-  //   },
-  //   { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }
-  // ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true,
+    },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,7 +1,5 @@
 import {
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandler,
+  HttpErrorResponse, HttpHandler,
   HttpInterceptor,
   HttpRequest,
   HTTP_INTERCEPTORS
@@ -9,7 +7,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
-import { AuthService } from '@cwp/shared/configurations/services';
+import { AuthService } from '../services';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -18,7 +16,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  ): Observable<any> {
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse) => {
         if (
@@ -37,9 +35,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             })
           );
         }
-
-        return throwError(err);
-
+        return throwError(() => err);
       })
     );
   }

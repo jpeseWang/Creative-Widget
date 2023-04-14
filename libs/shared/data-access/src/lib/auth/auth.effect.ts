@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService, NotificationService } from '@cwp/shared/configurations/services';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { authAction } from '.';
 import { AppState } from '..';
-import { AuthService } from '../../../../configurations/src/lib/services';
 
 
 @Injectable()
@@ -36,19 +36,18 @@ export class AuthEffect {
             const token = res?.token;
             console.log(res);
             console.log('userProfile', userProfile);
-            return authAction.loginUserSuccess({ userProfile, token, isAuthenticated: true });
+            if (userProfile) {
+              this.router.navigate(['/']); // Navigate to dashboard if userProfile exists
+              return authAction.loginUserSuccess({ userProfile, token, isAuthenticated: true });
+            } else {
+              return authAction.loginUserFailure({ error: 'Login failed' });
+            }
           }),
           catchError((error) => of(authAction.loginUserFailure({ error }))),
-          tap(() => {
-            // Navigate to dashboard here
-            this.router.navigate(['/']);
-          }),
         );
       })
     );
-  }
-  );
-
+  });
   logOutUser$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(authAction.logOutUser),
@@ -196,6 +195,8 @@ export class AuthEffect {
     private actions$: Actions,
 
     private authService: AuthService,
+    private notificationService: NotificationService,
+
 
     private router: Router,
     private store: Store<AppState>

@@ -9,6 +9,8 @@ export interface AuthState {
   isAuthenticated: boolean;
   userProfile: UserProfileModel | null;
   token: string | null;
+
+  errorMessage?: string;
 }
 
 const initialState: AuthState = {
@@ -60,6 +62,7 @@ export const authReducer = createReducer(
   on(authAction.loginUserFailure, (state): AuthState => {
     return {
       ...state,
+      errorMessage: 'Incorrect email and/or password.'
     };
   }),
 

@@ -1,6 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
-a:hover { text-decoration: none; }
+html,
+body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.scrollbar {
+    background-color: #F5F5F5;
+    float: left;
+    height: 300px;
+    margin-bottom: 25px;
+    margin-left: 22px;
+    margin-top: 40px;
+    width: 65px;
+    overflow-y: scroll;
+}
+
+a:hover {
+    text-decoration: none;
+}
 
 .collapse {
     visibility: visible;
+}
+
+.success-snackbar {
+    background: #28a745;
+    color: white;
+    width: fit-content;
+    margin: auto !important;
+}
+
+.error-snackbar {
+    background: #dc3545;
+    color: white;
+    width: fit-content;
+    margin: auto !important;
 }

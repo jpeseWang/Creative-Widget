@@ -4,6 +4,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { AdminGuard, IsLoggedInGuard } from './guard';
+import { ErrorInterceptor, JwtInterceptor } from './interceptor';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { ApiService, AuthService, NavigationService, NotificationService } from './services';
 
@@ -15,6 +16,8 @@ export const CONFIGURATION_PROVIDERS = [
   AuthService,
   NavigationService,
   NotificationService,
+  ErrorInterceptor,
+  JwtInterceptor,
 ];
 
 export const CONFIGURATION_MODULES = [CommonModule, NgxPermissionsModule, MatSnackBarModule, MatDialogModule];
