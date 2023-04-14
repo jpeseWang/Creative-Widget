@@ -1,0 +1,4 @@
+{
+  "hello": "Hello, {{name}}!",
+  "signInTitle": "Sign in to your account {{test}}"
+}

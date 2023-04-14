@@ -136,4 +136,14 @@ export class AuthService {
     })
     );
   }
+
+  forgotPassword(email: string) {
+    return this.apiServices.post<any>('auth/forgot-password', { email }, false).pipe(map((auth) => {
+      if (auth.data) {
+        return auth.data;
+      }
+      return null;
+    })
+    );
+  }
 }

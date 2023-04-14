@@ -78,6 +78,27 @@ export class AuthEffect {
   }
   );
 
+  submitForgotPassword$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(authAction.setEmail),
+      switchMap((action) => {
+        return this.authService.forgotPassword(action.email).pipe(
+          map((res: any) => {
+            console.log(res);
+            const message = res?.messageCode;
+            return authAction.submitForgotPasswordSuccess({ message });
+          }),
+          catchError((error) => of(authAction.submitForgotPasswordFailure({ error }))),
+          tap((message) => of(message
+            ? this.notificationService.success('Please check your email to reset your password')
+            : this.notificationService.error('Email does not exist')
+          )),
+        );
+      })
+    );
+  }
+  );
+
 
   // getUserProfile$ = createEffect(() =>
   //   this.actions$.pipe(

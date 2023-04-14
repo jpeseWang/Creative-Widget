@@ -49,6 +49,12 @@ export const authAction = {
     props<{ error: any; }>()
   ),
 
+  setEmail: createAction('[Forgot Password] Set Email', props<{ email: string; }>()),
+  resetForgotPassword: createAction('[Forgot Password] Reset State'),
+  submitForgotPassword: createAction('[Forgot Password] Submit'),
+  submitForgotPasswordSuccess: createAction('[Forgot Password] Submit Success', props<{ message: string; }>()),
+  submitForgotPasswordFailure: createAction('[Forgot Password] Submit Failure', props<{ error: string; }>())
+
   // updateUserProfile: createAction(
   //   '[Auth] Update User Profile',
   //   props<{ userProfile: UserProfileModel }>()

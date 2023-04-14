@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { authAction, AuthState } from '../../../../../../../libs/shared/data-access/src/lib/auth';
 @Component({
   selector: 'cwp-login',

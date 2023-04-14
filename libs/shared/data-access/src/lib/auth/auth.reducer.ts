@@ -19,6 +19,18 @@ const initialState: AuthState = {
   token: null,
 };
 
+export interface ForgotPasswordState {
+  email: string;
+  loading: boolean;
+  error: string | null;
+}
+
+const initialForgotPasswordState: ForgotPasswordState = {
+  email: '',
+  loading: false,
+  error: null
+};
+
 export const authReducer = createReducer(
   initialState,
 
@@ -102,6 +114,14 @@ export const authReducer = createReducer(
     return {
       ...state,
     };
-  })
+  }),
+);
 
+export const forgotPasswordReducer = createReducer(
+  initialForgotPasswordState,
+  on(authAction.setEmail, (state, { email }) => ({ ...state, email })),
+  on(authAction.resetForgotPassword, () => initialForgotPasswordState),
+  on(authAction.submitForgotPassword, (state) => ({ ...state, loading: true, error: null })),
+  on(authAction.submitForgotPasswordSuccess, (state) => ({ ...state, loading: false })),
+  on(authAction.submitForgotPasswordFailure, (state, { error }) => ({ ...state, loading: false, error }))
 );

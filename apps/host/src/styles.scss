@@ -30,15 +30,32 @@ a:hover {
 }
 
 .success-snackbar {
-    background: #28a745;
+    background: #28a745 !important;
     color: white;
-    width: fit-content;
-    margin: auto !important;
+
+    .mdc-snackbar__surface {
+        background-color: unset !important;
+        color: unset !important;
+    }
 }
 
 .error-snackbar {
-    background: #dc3545;
+    background: #dc3545 !important;
     color: white;
-    width: fit-content;
-    margin: auto !important;
+
+    .mdc-snackbar__surface {
+        background-color: unset !important;
+        color: unset !important;
+    }
+}
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

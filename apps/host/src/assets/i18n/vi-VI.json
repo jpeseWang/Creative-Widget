@@ -1,0 +1,4 @@
+{
+  "hello": "Xin chào, {{name}}!",
+  "signInTitle": "Đăng nhập đi mày {{test}}"
+}

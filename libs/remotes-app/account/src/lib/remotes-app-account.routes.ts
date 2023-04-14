@@ -2,7 +2,6 @@ import { AccountComponent } from './page/account/account.component';
 import { Route } from '@angular/router';
 import { RemotesAppAccountComponent } from './remotes-app-account.component';
 import { SettingComponent } from './page/setting/setting.component';
-import { PlanAndBillingComponent } from './page/plan-and-billing/plan-and-billing.component';
 import { IntegrationComponentsComponent } from './page/integration-components/integration-components.component';
 
 export const remotesAppAccountRoutes: Route[] = [

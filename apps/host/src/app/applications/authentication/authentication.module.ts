@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Route, RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -39,6 +40,7 @@ const AUTH_ROUTE: Route[] = [
     ReactiveFormsModule,
     FormsModule,
     MatIconModule,
+    TranslateModule,
   ],
   exports: [SignUpComponent, LoginComponent, ForgotPasswordComponent, RouterModule],
 })
