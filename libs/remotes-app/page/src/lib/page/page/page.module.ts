@@ -7,18 +7,17 @@ import { PageDetailsComponent } from '../../containers/page-details/page-details
 import { PageComponent } from './page.component';
 
 @NgModule({
+  declarations: [PageContainerComponent, PageComponent, PageDetailsComponent],
   imports: [
-    ComponentFeaturesModule,
     CommonModule,
     RouterModule.forChild([
       { path: '', component: PageComponent },
       {
-        path: ':id', // Route path with a dynamic parameter for page ID
+        path: ':id',
         component: PageDetailsComponent // Component to be displayed for the page route
       }
     ]),
-  ],
-  declarations: [PageContainerComponent, PageComponent, PageDetailsComponent],
-  exports: [PageContainerComponent, PageComponent, PageDetailsComponent],
+    ComponentFeaturesModule
+  ]
 })
 export class PageModule {}

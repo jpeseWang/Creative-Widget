@@ -34,6 +34,8 @@
     "lodash": "^4.17.20",
     "ngrx": "^0.0.1-security",
     "ngx-permissions": "^15.0.1",
+    "primeicons": "^6.0.1",
+    "primeng": "^15.3.0",
     "rxjs": "~7.8.0",
     "tailwind": "^4.0.0",
     "tslib": "^2.3.0",
