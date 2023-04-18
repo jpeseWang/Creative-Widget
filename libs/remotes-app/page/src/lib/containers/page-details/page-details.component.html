@@ -6,100 +6,33 @@
          class="example-list"
          [cdkDropListData]="items"
          (cdkDropListDropped)="drop($event)">
-      <!-- <cwp-header-1-ui cdkDrag></cwp-header-1-ui> -->
-      <!-- TODO: Fix later -->
-      <!-- <div class="bg-gray-50"
-         cdkDrag>
-      <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <div class="sm:flex sm:items-baseline sm:justify-between">
-          <h2 class="text-2xl font-bold tracking-tight text-gray-900">Shop by Category</h2>
-          <a href="#"
-             class="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
-            Browse all categories
-            <span aria-hidden="true"> &rarr;</span>
-          </a>
-        </div>
-
-        <div class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
-          <div class="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2">
-            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-featured-category.jpg"
-                 alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
-                 class="object-cover object-center group-hover:opacity-75">
-            <div aria-hidden="true"
-                 class="bg-gradient-to-b from-transparent to-black opacity-50"></div>
-            <div class="flex items-end p-6">
-              <div>
-                <h3 class="font-semibold text-white">
-                  <a href="#">
-                    <span class="inset-0"></span>
-                    New Arrivals
-                  </a>
-                </h3>
-                <p aria-hidden="true"
-                   class="mt-1 text-sm text-white">Shop now</p>
-              </div>
-            </div>
-          </div>
-          <div class="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-01.jpg"
-                 alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
-                 class="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full">
-            <div aria-hidden="true"
-                 class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
-            <div class="flex items-end p-6 sm:absolute sm:inset-0">
-              <div>
-                <h3 class="font-semibold text-white">
-                  <a href="#">
-                    <span class="inset-0"></span>
-                    Accessories
-                  </a>
-                </h3>
-                <p aria-hidden="true"
-                   class="mt-1 text-sm text-white">Shop now</p>
-              </div>
-            </div>
-          </div>
-          <div class="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-02.jpg"
-                 alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
-                 class="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full">
-            <div aria-hidden="true"
-                 class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
-            <div class="flex items-end p-6 sm:absolute sm:inset-0">
-              <div>
-                <h3 class="font-semibold text-white">
-                  <a href="#">
-                    <span class="inset-0"></span>
-                    Workspace
-                  </a>
-                </h3>
-                <p aria-hidden="true"
-                   class="mt-1 text-sm text-white">Shop now</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-6 sm:hidden">
-          <a href="#"
-             class="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-            Browse all categories
-            <span aria-hidden="true"> &rarr;</span>
-          </a>
-        </div>
-      </div>
-    </div> -->
-      <div class="example-box"
+      <div class="example-box relative"
            *ngFor="let item of items; let i = index"
+           (mouseenter)="onMouseEnter(item,i)"
+           (mouseleave)="onMouseLeave(item,i)"
            cdkDrag>
-        <div *ngIf="item.src.startsWith('<div');else isComponent">
+        <div class="relative w-full"
+             *ngIf="item.src.startsWith('<div');else isComponent">
           <div [innerHTML]="item.src"
-               class="w-full"></div>
+               class="w-full">
+          </div>
         </div>
         <ng-template #isComponent>
-          <div #componentContainer
-               class="w-full"></div>
+          <div class="relative w-full">
+            <div #componentContainer
+                 class="w-full"></div>
+          </div>
         </ng-template>
+        <button *ngIf="showButton===item"
+                class="absolute top-6 right-0 z-50
+                                        bg-gray-200 hover:bg-gray-300
+                                        text-gray-800 font-bold py-2 px-4
+                                        rounded-l
+                                        hover:-translate-y-1 duration-300
+                                "
+                (click)="onButtonClick()">
+          <img class="mr-2"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAABB0lEQVR4nKXQPUpDQRAH8O0tbeyE7Iyk8hIhaSWFVop5M+GRwlwgF4iVpBMrG0E8gYIX0dpA2JnXeIEk7MZUZj+iA/9mmf3tzBrzhzq+dkfIOkPWFzvUs3BoK7kA0odcsGr6oZ8dAMscWVfbBAxJX5H0DVluUwFuursQH2B9DhCQjnLr2AgSQnpXBNkE4s/9n2Wh1kAwPol8+UdCYwoqRlJQbh3LDpCbGySZRKHSSZBkiiz3OyGonc1NYn4qDbE+liB5iPQz+7E5qH31fYgsyxIkCZ2QdjaALIHlw68JtbMmUlHo9HJxANT0/GSxy6YE2rd+QcjyhEOt987m7hZyY2B5/0fOPbQGfAK5hW0Lt24AAAAASUVORK5CYII=">Edit</button>
       </div>
     </div>
     <div class="bg-white shadow sm:rounded-lg">
@@ -134,6 +67,7 @@
              cdkDropListOrientation="horizontal"
              class="background-list scroll-container"
              style="overflow: auto"
+             cdkDropListSortingDisabled
              [cdkDropListData]="images"
              (cdkDropListDropped)="drop($event)">
           <div class="flex flex-col"

@@ -5,7 +5,7 @@ export const DATA_PREVIEW = [{
 {
   preview: 'https://tailwindui.com/img/ecommerce-images/home-page-03-header.jpg',
   src: `<div class="bg-gray-50">
-      <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-24 lg:px-8">
         <div class="sm:flex sm:items-baseline sm:justify-between">
           <h2 class="text-2xl font-bold tracking-tight text-gray-900">Shop by Category</h2>
           <a href="#"

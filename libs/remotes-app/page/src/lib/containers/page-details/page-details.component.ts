@@ -11,9 +11,12 @@ import { DATA_PREVIEW, DATA_SIDE_BAR } from './mockdata';
 })
 export class PageDetailsComponent implements AfterViewInit {
 
-  items: any[] = DATA_PREVIEW;
+  showButton: string | null = null;
 
   sidebarVisible4!: boolean;
+
+  items: any[] = DATA_PREVIEW;
+
   images: any[] = DATA_SIDE_BAR;
 
   @ViewChild('componentContainer', { read: ViewContainerRef }) componentContainer!: ViewContainerRef;
@@ -53,7 +56,25 @@ export class PageDetailsComponent implements AfterViewInit {
         event.currentIndex,
       );
     }
-    this.images = DATA_SIDE_BAR;
+    this.showButton = null;
+  }
+  onMouseEnter(item: any, i: number): void {
+    // check is dragging or not
+    if (this.showButton) {
+      return;
+    }
 
+    this.showButton = item;
+  }
+
+  onMouseLeave(item: any, i: number): void {
+    if (this.showButton === item) {
+      this.showButton = null;
+    };
+  }
+
+  onButtonClick(): void {
+    // Handle button click logic here
+    console.log('Button clicked');
   }
 }
