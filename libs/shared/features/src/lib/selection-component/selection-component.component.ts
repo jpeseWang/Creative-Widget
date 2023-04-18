@@ -29,53 +29,18 @@ export class SelectionComponentComponent {
   sidebarVisible4!: boolean;
   images: any[] = [
     // fake data
-    {
-      src: 'https://via.placeholder.com/300',
-      alt: 'Image 1',
-      title: 'Image 1',
-    },
-    {
-      src: 'https://via.placeholder.com/300',
-      alt: 'Image 2',
-      title: 'Image 2',
-    },
-    {
-      src: 'https://via.placeholder.com/300',
-      alt: 'Image 3',
-      title: 'Image 3',
-    },
-    {
-      src: 'https://via.placeholder.com/300',
-      alt: 'Image 4',
-      title: 'Image 4',
-    },
-    {
-      src: 'https://via.placeholder.com/300',
-      alt: 'Image 5',
-      title: 'Image 5',
-    },
-    {
-      src: 'https://via.placeholder.com/300',
-      alt: 'Image 6',
-      title: 'Image 6',
-    },
-    {
-      src: 'https://via.placeholder.com/300',
-      alt: 'Image 7',
-      title: 'Image 7',
-    },
-    {
-      src: 'https://via.placeholder.com/300',
-      alt: 'Image 8',
-      title: 'Image 8',
-    },
+    `<div class="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
+      <h3 class="text-base font-semibold leading-6 text-gray-900">Job Postings</h3>
+    </div>
+    `,
+    `<div class="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
+      <h3 class="text-base font-semibold leading-6 text-gray-900">Job Postings</h3>
+    </div>
+    `,
   ];
 
-  dragStart(product: any) {
-    this.draggedProduct = product;
-  }
-
-  dragEnd() {
-    this.draggedProduct = null;
+  onDrop(event: any) {
+    this.draggedProduct = event.dragData;
+    this.sidebarVisible4 = true;
   }
 }

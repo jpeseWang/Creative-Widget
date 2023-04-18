@@ -1,103 +1,160 @@
 <div class="container mt-4 mx-auto px-2 sm:px-6 lg:px-8
   border border-gray-200 rounded-lg shadow-lg p-4
 ">
-  <!-- Content goes here -->
-  <cwp-header-1-ui></cwp-header-1-ui>
-  <!-- TODO: Fix later -->
-  <!--
-    This example requires some changes to your config:
+  <div cdkDropListGroup>
+    <div cdkDropList
+         class="example-list"
+         [cdkDropListData]="items"
+         (cdkDropListDropped)="drop($event)">
+      <!-- <cwp-header-1-ui cdkDrag></cwp-header-1-ui> -->
+      <!-- TODO: Fix later -->
+      <!-- <div class="bg-gray-50"
+         cdkDrag>
+      <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <div class="sm:flex sm:items-baseline sm:justify-between">
+          <h2 class="text-2xl font-bold tracking-tight text-gray-900">Shop by Category</h2>
+          <a href="#"
+             class="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
+            Browse all categories
+            <span aria-hidden="true"> &rarr;</span>
+          </a>
+        </div>
 
-    ```
-    // tailwind.config.js
-    module.exports = {
-      // ...
-      plugins: [
-        // ...
-        require('@tailwindcss/aspect-ratio'),
-      ],
-    }
-    ```
-  -->
-  <div class="bg-gray-50">
-    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-      <div class="sm:flex sm:items-baseline sm:justify-between">
-        <h2 class="text-2xl font-bold tracking-tight text-gray-900">Shop by Category</h2>
-        <a href="#"
-           class="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
-          Browse all categories
-          <span aria-hidden="true"> &rarr;</span>
-        </a>
+        <div class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
+          <div class="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-featured-category.jpg"
+                 alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
+                 class="object-cover object-center group-hover:opacity-75">
+            <div aria-hidden="true"
+                 class="bg-gradient-to-b from-transparent to-black opacity-50"></div>
+            <div class="flex items-end p-6">
+              <div>
+                <h3 class="font-semibold text-white">
+                  <a href="#">
+                    <span class="inset-0"></span>
+                    New Arrivals
+                  </a>
+                </h3>
+                <p aria-hidden="true"
+                   class="mt-1 text-sm text-white">Shop now</p>
+              </div>
+            </div>
+          </div>
+          <div class="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-01.jpg"
+                 alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
+                 class="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full">
+            <div aria-hidden="true"
+                 class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
+            <div class="flex items-end p-6 sm:absolute sm:inset-0">
+              <div>
+                <h3 class="font-semibold text-white">
+                  <a href="#">
+                    <span class="inset-0"></span>
+                    Accessories
+                  </a>
+                </h3>
+                <p aria-hidden="true"
+                   class="mt-1 text-sm text-white">Shop now</p>
+              </div>
+            </div>
+          </div>
+          <div class="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
+            <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-02.jpg"
+                 alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
+                 class="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full">
+            <div aria-hidden="true"
+                 class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
+            <div class="flex items-end p-6 sm:absolute sm:inset-0">
+              <div>
+                <h3 class="font-semibold text-white">
+                  <a href="#">
+                    <span class="inset-0"></span>
+                    Workspace
+                  </a>
+                </h3>
+                <p aria-hidden="true"
+                   class="mt-1 text-sm text-white">Shop now</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:hidden">
+          <a href="#"
+             class="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+            Browse all categories
+            <span aria-hidden="true"> &rarr;</span>
+          </a>
+        </div>
       </div>
-
-      <div class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
-        <div class="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2">
-          <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-featured-category.jpg"
-               alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
-               class="object-cover object-center group-hover:opacity-75">
-          <div aria-hidden="true"
-               class="bg-gradient-to-b from-transparent to-black opacity-50"></div>
-          <div class="flex items-end p-6">
-            <div>
-              <h3 class="font-semibold text-white">
-                <a href="#">
-                  <span class="inset-0"></span>
-                  New Arrivals
-                </a>
-              </h3>
-              <p aria-hidden="true"
-                 class="mt-1 text-sm text-white">Shop now</p>
-            </div>
-          </div>
+    </div> -->
+      <div class="example-box"
+           *ngFor="let item of items; let i = index"
+           cdkDrag>
+        <div *ngIf="item.src.startsWith('<div');else isComponent">
+          <div [innerHTML]="item.src"
+               class="w-full"></div>
         </div>
-        <div class="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-          <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-01.jpg"
-               alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
-               class="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full">
-          <div aria-hidden="true"
-               class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
-          <div class="flex items-end p-6 sm:absolute sm:inset-0">
-            <div>
-              <h3 class="font-semibold text-white">
-                <a href="#">
-                  <span class="inset-0"></span>
-                  Accessories
-                </a>
-              </h3>
-              <p aria-hidden="true"
-                 class="mt-1 text-sm text-white">Shop now</p>
-            </div>
-          </div>
-        </div>
-        <div class="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-          <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-category-02.jpg"
-               alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
-               class="object-cover object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full">
-          <div aria-hidden="true"
-               class="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"></div>
-          <div class="flex items-end p-6 sm:absolute sm:inset-0">
-            <div>
-              <h3 class="font-semibold text-white">
-                <a href="#">
-                  <span class="inset-0"></span>
-                  Workspace
-                </a>
-              </h3>
-              <p aria-hidden="true"
-                 class="mt-1 text-sm text-white">Shop now</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-6 sm:hidden">
-        <a href="#"
-           class="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-          Browse all categories
-          <span aria-hidden="true"> &rarr;</span>
-        </a>
+        <ng-template #isComponent>
+          <div #componentContainer
+               class="w-full"></div>
+        </ng-template>
       </div>
     </div>
-  </div>
+    <div class="bg-white shadow sm:rounded-lg">
+      <div class="px-4 py-5 sm:p-6">
+        <h3 class="text-base font-semibold leading-6 text-gray-900">Continuous Integration</h3>
+        <div class="mt-2 max-w-xl text-sm text-gray-500">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, totam at reprehenderit maxime aut beatae ad.</p>
+        </div>
+        <div class="mt-3 text-sm leading-6">
+          <a href="#"
+             class="font-semibold text-indigo-600 hover:text-indigo-500">
+            Learn more about our CI features
+            <span aria-hidden="true"> &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
+    <p-sidebar [(visible)]="sidebarVisible4"
+               [closeOnEscape]="true"
+               [showCloseIcon]="true"
+               [modal]="false"
+               position="bottom">
+      <div class="flex flex-row">
+        <a [routerLink]="['/marketplace']"
+           class="flex-shrink">
+          <img class="mx-auto w-full"
+               style="width: 60px;"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACBUlEQVR4nO2XMWsUQRTHn0EurXUw1rlrhAT2yIxnBGFPDdxWiY2VVZZYGBDRIgwzW6hgE8SPED9COluxSrASUsZLUgrx3rsigZF358Eh12RvZvcG9gfTLDzm/5t5b2ABKioqKmaHpXQd6mm3tvzGNtJDKw1ZofFKaDwWml6vKXsTZpqlrV9QTy2v+ZW3A4HxJQx+gZAFpCG7qnttmFnqW49ZgsM30qOJAkLjPoTEPU1ykkh5q3f3egbW3hAaT8oPTlYYOsh1C9LQXtnh5WD++g9zCQhNrbLDC0M/uBtyCYCyc9LQackCz/KFH92CoU+lCWjqNpStTSWwmtH9EgVewdQoOyc0nRUfHi/W1O9b0wsM2+hz4b2v8SO4Qmb9B4WGN3gpFd1xJvDvNSry9PfBNUUKtFRvOVwBjV+dhy9SQJjek4AF8CfPmzcB4V2g/9xL+JGA39ah80d7dj5MAU1dkfVjb+EnCUBoyOAFNF6MC0QKb0NICEPf/xu6g1ZGixAKUuML3y8R+IT/jKSmw2AFGKFwwacEFMHgJjLclga/CYN/ghMY0djYqDXjzodm3DmL2slp1O6852/gudYZvGmzndjxxd981zqDT483frqzazd3dodB4uTcd60z+Op5Yw6w+XIYIoqTru9aZ0xug+Sd71pn8NBxkOEQXn+Io5y1FRUVFTAT/AU9ZKkzAk5zoAAAAABJRU5ErkJggg==">
+        </a>
+        <div cdkDropList
+             cdkDropListOrientation="horizontal"
+             class="background-list scroll-container"
+             style="overflow: auto"
+             [cdkDropListData]="images"
+             (cdkDropListDropped)="drop($event)">
+          <div class="flex flex-col"
+               *ngFor="let image of images; let i = index"
+               cdkDrag>
+            <div class="background-box"
+                 style="width: 240px; height: 100px;">
+              <div [innerHTML]="image.src"
+                   style="height: 60px !important; overflow: hidden; display: none;"></div>
+              <img [src]="image.preview"
+                   alt="Preview Image"
+                   style="height:100px; max-width: 100%;margin:auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-sidebar>
+    <p-button type="button"
+              class="fixed bottom-56 right-0 z-10"
+              (click)="sidebarVisible4 = !sidebarVisible4"
+              icon="pi pi-th-large"></p-button>
+
+  </div>
 </div>
-<cwp-selection-component></cwp-selection-component>
