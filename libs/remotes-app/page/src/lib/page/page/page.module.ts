@@ -2,6 +2,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { IsLoggedInGuard } from '@cwp/shared/configurations';
 import { ComponentFeaturesModule } from '@cwp/shared/features';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
@@ -17,9 +18,14 @@ import { PageComponent } from './page.component';
     SidebarModule,
     ButtonModule,
     RouterModule.forChild([
-      { path: '', component: PageComponent },
+      {
+        path: '',
+        canActivate: [IsLoggedInGuard],
+        component: PageComponent
+      },
       {
         path: ':id',
+        canActivate: [IsLoggedInGuard],
         component: PageDetailsComponent // Component to be displayed for the page route
       }
     ]),
