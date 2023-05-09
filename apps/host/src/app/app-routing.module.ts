@@ -27,11 +27,11 @@ export const appRoutes: Route[] = [
         canActivate: [],
         loadChildren: () => import('@cwp/remotes-app/community').then(m => m.RemotesAppCommunityModule)
     },
-    // {
-    //     path:'dashboard',
-    //     canActivate: [],
-    //     loadChildren: () => import('@cwp/remotes-app/dashboard').then(m => m.RemotesAppDashboardModule)
-    // },
+    {
+        path:'dashboard',
+        canActivate: [],
+        loadChildren: () => import('@cwp/remotes-app/dashboard').then(m => m.RemotesAppDashboardModule)
+    },
     {
         path: 'features',
         canActivate: [],
