@@ -11,11 +11,11 @@ export class AppComponent {
   }
 
   languages = [
-    { country: 'English', flag: 'icon', language: 'en-US' },
-    { country: 'Vietnam', flag: 'icon', language: 'vi-VI' },
+    { country: 'English', flag: '../assets/images/england.png', language: 'en-US' },
+    { country: 'Vietnam', flag: '../assets/images/vietnam.png', language: 'vi-VI' },
     // { country: 'China', icon: 'icon', language: 'es-ES' },
-    { country: 'France', flag: 'icon', language: 'fr-FR' },
-    { country: 'Spanish', flag: 'icon', language: 'es-ES' },
+    { country: 'France', flag: '../assets/images/france.png', language: 'fr-FR' },
+    { country: 'Spanish', flag: '../assets/images/spain.png', language: 'es-ES' },
   ];
 
   public changeLanguage(language: string): void {

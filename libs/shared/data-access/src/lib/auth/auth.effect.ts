@@ -26,7 +26,6 @@ export class AuthEffect {
   //   );
   // });
   loginUser$ = createEffect(() => {
-    console.log('vao day');
     return this.actions$.pipe(
       ofType(authAction.loginUser),
       switchMap((action) => {
@@ -34,8 +33,6 @@ export class AuthEffect {
           map((res: any) => {
             const userProfile = res?.user;
             const token = res?.token;
-            console.log(res);
-            console.log('userProfile', userProfile);
             if (userProfile) {
               this.router.navigate(['/']); // Navigate to dashboard if userProfile exists
               return authAction.loginUserSuccess({ userProfile, token, isAuthenticated: true });

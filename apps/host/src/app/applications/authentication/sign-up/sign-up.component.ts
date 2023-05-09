@@ -35,9 +35,6 @@ export class SignUpComponent {
     this.registerForm.get('password')?.status === 'INVALID' ? this.isValidPassword = false : this.isValidPassword = true;
     this.registerForm.get('confirmPassword')?.status === 'INVALID' ? this.isValidConfirmPassword = false : this.isValidConfirmPassword = true;
 
-
-    console.log(this.registerForm.value);
-
     if (!this.isValidEmail || !this.isValidPassword || !this.isValidConfirmPassword) {
       return;
     }

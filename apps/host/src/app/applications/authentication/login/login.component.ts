@@ -36,8 +36,6 @@ export class LoginComponent {
       return;
     }
 
-    console.log(this.loginForm.value);
-
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     this.store.dispatch(authAction.loginUser({ email: this.loginForm.value.email!, password: this.loginForm.value.password! }));
 
