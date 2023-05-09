@@ -5,7 +5,7 @@ export const DATA_PREVIEW = [
     option: {
       title: ["Product", "Features", "MarketPlace", "Company"],
       url: ["/#", "/#", "/#", "/#"],
-      backGroundColor: "rgba(0, 1, 0, 0.5)",
+      backGroundColor: "rgba(244, 1, 0, 0.5)",
       textColor: "rgba(255, 255, 255,1)",
     },
     order: 1,
@@ -33,6 +33,8 @@ export const DATA_PREVIEW = [
     preview: 'https://via.placeholder.com/300',
     type: "footer-1",
     option: {
+      title: ["About", "Contact", "Blog", "Careers", "Support", "Privacy Policy"],
+      icon: ["Facebook", "Twitter", "Instagram", "Linkedin", "Youtube", "Github"],
       backGroundColor: "rgba(0, 1, 0, 0.5)",
       textColor: "rgba(255, 255, 255,1)",
     },

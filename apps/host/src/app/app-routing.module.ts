@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { ErrorPageComponent } from '@cwp/shared/pages/error-page';
-import { MaintenacePageComponent } from '@cwp/shared/pages/maintenance-page';
 import { PermissionPageComponent } from '@cwp/shared/pages/permission-page';
 import { AboutUsComponent } from './applications/pages/about-us/about-us.component';
 import { FeaturesComponent } from './applications/pages/features/features.component';
@@ -27,11 +26,11 @@ export const appRoutes: Route[] = [
         canActivate: [],
         loadChildren: () => import('@cwp/remotes-app/community').then(m => m.RemotesAppCommunityModule)
     },
-    {
-        path:'dashboard',
-        canActivate: [],
-        loadChildren: () => import('@cwp/remotes-app/dashboard').then(m => m.RemotesAppDashboardModule)
-    },
+    // {
+    //     path:'dashboard',
+    //     canActivate: [],
+    //     loadChildren: () => import('@cwp/remotes-app/dashboard').then(m => m.RemotesAppDashboardModule)
+    // },
     {
         path: 'features',
         canActivate: [],
@@ -73,16 +72,16 @@ export const appRoutes: Route[] = [
         canActivate: [],
         component: PermissionPageComponent
     },
-    {
-        path: 'maintenance',
-        pathMatch: 'full',
-        component: MaintenacePageComponent
-    },
-    {
-        path: 'design-system',
-        canActivate: [],
-        loadChildren: () => import('@cwp/remotes-app/design-system').then(m => m.RemotesAppDesignSystemModule)
-    },
+    // {
+    //     path: 'maintenance',
+    //     pathMatch: 'full',
+    //     component: MaintenacePageComponent
+    // },
+    // {
+    //     path: 'design-system',
+    //     canActivate: [],
+    //     loadChildren: () => import('@cwp/remotes-app/design-system').then(m => m.RemotesAppDesignSystemModule)
+    // },
     {
         path: ':url',
         pathMatch: 'full',

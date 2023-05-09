@@ -2,7 +2,8 @@
 import { CdkDragDrop, copyArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ComponentFactoryResolver, ElementRef, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { EditDialogComponent } from '../../../../../../shared/features/src/lib/setup-component/edit-dialog/edit-dialog.component';
+import { Footer1PopupComponent } from '../../../../../../shared/features/src/lib/footer/footer-1-popup/footer-1-popup.component';
+import { Header1PopupComponent } from '../../../../../../shared/features/src/lib/header/header-1/header-1-popup/header-1-popup.component';
 import { DATA_PREVIEW, DATA_SIDE_BAR } from './mockdata';
 
 @Component({
@@ -67,8 +68,15 @@ export class PageDetailsComponent {
     };
   }
 
-  onButtonClick(data: any): void {
-    const dialogRef = this.dialog.open(EditDialogComponent, {
+  onButtonClickHeader1(data: any): void {
+    const dialogRef = this.dialog.open(Header1PopupComponent, {
+      width: '700px',
+      data
+    });
+  }
+
+  onButtonClickFooter1(data: any): void {
+    const dialogRef = this.dialog.open(Footer1PopupComponent, {
       width: '700px',
       data
     });

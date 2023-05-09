@@ -30,16 +30,26 @@
           <cwp-footer-2-ui *ngSwitchCase="'footer-2'"
                            [data]="item.option"></cwp-footer-2-ui>
         </container-element>
-        <button *ngIf="showButton===item"
-                class="absolute top-6 right-0 z-50
+        <container-element [ngSwitch]="item.type">
+          <button *ngSwitchCase="'header-1'"
+                  class="absolute top-6 right-0 z-50
                                         bg-gray-200 hover:bg-gray-300
                                         text-gray-800 font-bold py-2 px-4
                                         rounded-l
-                                        hover:-translate-y-1 duration-300
-                                "
-                (click)="onButtonClick(item.option)">
-          <img class="mr-2"
-               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAABB0lEQVR4nKXQPUpDQRAH8O0tbeyE7Iyk8hIhaSWFVop5M+GRwlwgF4iVpBMrG0E8gYIX0dpA2JnXeIEk7MZUZj+iA/9mmf3tzBrzhzq+dkfIOkPWFzvUs3BoK7kA0odcsGr6oZ8dAMscWVfbBAxJX5H0DVluUwFuursQH2B9DhCQjnLr2AgSQnpXBNkE4s/9n2Wh1kAwPol8+UdCYwoqRlJQbh3LDpCbGySZRKHSSZBkiiz3OyGonc1NYn4qDbE+liB5iPQz+7E5qH31fYgsyxIkCZ2QdjaALIHlw68JtbMmUlHo9HJxANT0/GSxy6YE2rd+QcjyhEOt987m7hZyY2B5/0fOPbQGfAK5hW0Lt24AAAAASUVORK5CYII=">Edit</button>
+                                        hover:-translate-y-1 duration-300"
+                  (click)="onButtonClickHeader1(item.option)">
+            <img class="mr-2"
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAABB0lEQVR4nKXQPUpDQRAH8O0tbeyE7Iyk8hIhaSWFVop5M+GRwlwgF4iVpBMrG0E8gYIX0dpA2JnXeIEk7MZUZj+iA/9mmf3tzBrzhzq+dkfIOkPWFzvUs3BoK7kA0odcsGr6oZ8dAMscWVfbBAxJX5H0DVluUwFuursQH2B9DhCQjnLr2AgSQnpXBNkE4s/9n2Wh1kAwPol8+UdCYwoqRlJQbh3LDpCbGySZRKHSSZBkiiz3OyGonc1NYn4qDbE+liB5iPQz+7E5qH31fYgsyxIkCZ2QdjaALIHlw68JtbMmUlHo9HJxANT0/GSxy6YE2rd+QcjyhEOt987m7hZyY2B5/0fOPbQGfAK5hW0Lt24AAAAASUVORK5CYII=">Edit</button>
+          <button *ngSwitchCase="'footer-1'"
+                  class="absolute top-6 right-0 z-50
+                                                          bg-gray-200 hover:bg-gray-300
+                                                          text-gray-800 font-bold py-2 px-4
+                                                          rounded-l
+                                                          hover:-translate-y-1 duration-300"
+                  (click)="onButtonClickFooter1(item.option)">
+            <img class="mr-2"
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAABB0lEQVR4nKXQPUpDQRAH8O0tbeyE7Iyk8hIhaSWFVop5M+GRwlwgF4iVpBMrG0E8gYIX0dpA2JnXeIEk7MZUZj+iA/9mmf3tzBrzhzq+dkfIOkPWFzvUs3BoK7kA0odcsGr6oZ8dAMscWVfbBAxJX5H0DVluUwFuursQH2B9DhCQjnLr2AgSQnpXBNkE4s/9n2Wh1kAwPol8+UdCYwoqRlJQbh3LDpCbGySZRKHSSZBkiiz3OyGonc1NYn4qDbE+liB5iPQz+7E5qH31fYgsyxIkCZ2QdjaALIHlw68JtbMmUlHo9HJxANT0/GSxy6YE2rd+QcjyhEOt987m7hZyY2B5/0fOPbQGfAK5hW0Lt24AAAAASUVORK5CYII=">Edit</button>
+        </container-element>
       </div>
     </div>
     <div class="bg-white shadow sm:rounded-lg">

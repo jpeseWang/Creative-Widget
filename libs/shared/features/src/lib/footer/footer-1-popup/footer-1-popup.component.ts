@@ -1,16 +1,17 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 @Component({
-  selector: 'cwp-header-1-popup',
-  templateUrl: './header-1-popup.component.html',
-  styleUrls: ['./header-1-popup.component.scss'],
+  selector: 'cwp-footer-1-popup',
+  templateUrl: './footer-1-popup.component.html',
+  styleUrls: ['./footer-1-popup.component.scss'],
 })
-export class Header1PopupComponent implements OnInit {
+export class Footer1PopupComponent implements OnInit {
   editHeaderForm!: FormGroup;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<Header1PopupComponent>,
+    public dialogRef: MatDialogRef<Footer1PopupComponent>,
 
     public form: FormBuilder,
   ) {
