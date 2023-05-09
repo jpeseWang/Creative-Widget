@@ -1,6 +1,8 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { CdkDragDrop, copyArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
-import { AfterViewInit, Component, ComponentFactoryResolver, ElementRef, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { Component, ComponentFactoryResolver, ElementRef, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { EditDialogComponent } from '../../../../../../shared/features/src/lib/setup-component/edit-dialog/edit-dialog.component';
 import { DATA_PREVIEW, DATA_SIDE_BAR } from './mockdata';
 
 @Component({
@@ -8,7 +10,7 @@ import { DATA_PREVIEW, DATA_SIDE_BAR } from './mockdata';
   templateUrl: './page-details.component.html',
   styleUrls: ['./page-details.component.scss'],
 })
-export class PageDetailsComponent implements AfterViewInit {
+export class PageDetailsComponent {
 
   showButton: string | null = null;
 
@@ -20,18 +22,11 @@ export class PageDetailsComponent implements AfterViewInit {
 
   @ViewChild('componentContainer', { read: ViewContainerRef }) componentContainer!: ViewContainerRef;
 
-  constructor(private renderer: Renderer2, private el: ElementRef, private resolver: ComponentFactoryResolver) {}
-
-  ngAfterViewInit() {
-    // Create a component factory
-    // const factory = this.resolver.resolveComponentFactory(Header1UiComponent);
-
-    // // Use Renderer2 to create a new element with the component's selector
-    // const componentRef = factory.create(this.componentContainer.injector);
-
-    // // Append the component to the component container using Renderer2
-    // this.renderer.appendChild(this.componentContainer.element.nativeElement, componentRef.location.nativeElement);
-  }
+  constructor(
+    private renderer: Renderer2, private el: ElementRef,
+    private resolver: ComponentFactoryResolver,
+    public dialog: MatDialog,
+  ) {}
 
   drop(event: CdkDragDrop<string[]>): void {
     console.log('event', event.container.data);
@@ -72,8 +67,10 @@ export class PageDetailsComponent implements AfterViewInit {
     };
   }
 
-  onButtonClick(): void {
-    // Handle button click logic here
-    console.log('Button clicked');
+  onButtonClick(data: any): void {
+    const dialogRef = this.dialog.open(EditDialogComponent, {
+      width: '700px',
+      data
+    });
   }
 }

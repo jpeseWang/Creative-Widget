@@ -14,7 +14,21 @@
         <container-element class="w-full"
                            [ngSwitch]="item.type">
           <cwp-header-1-ui *ngSwitchCase="'header-1'"
-                           [data]="item.header1"></cwp-header-1-ui>
+                           [data]="item.option"></cwp-header-1-ui>
+          <cwp-front-page-1-ui *ngSwitchCase="'front-page-1'"
+                               [data]="item.option"></cwp-front-page-1-ui>
+          <cwp-header-2-ui *ngSwitchCase="'header-2'"
+                           [data]="item.option"></cwp-header-2-ui>
+          <cwp-category-1-ui *ngSwitchCase="'category-1'"
+                             [data]="item.option"></cwp-category-1-ui>
+          <cwp-category-2-ui *ngSwitchCase="'category-2'"
+                             [data]="item.option"></cwp-category-2-ui>
+          <cwp-category-3-ui *ngSwitchCase="'category-3'"
+                             [data]="item.option"></cwp-category-3-ui>
+          <cwp-footer-1-ui *ngSwitchCase="'footer-1'"
+                           [data]="item.option"></cwp-footer-1-ui>
+          <cwp-footer-2-ui *ngSwitchCase="'footer-2'"
+                           [data]="item.option"></cwp-footer-2-ui>
         </container-element>
         <button *ngIf="showButton===item"
                 class="absolute top-6 right-0 z-50
@@ -23,7 +37,7 @@
                                         rounded-l
                                         hover:-translate-y-1 duration-300
                                 "
-                (click)="onButtonClick()">
+                (click)="onButtonClick(item.option)">
           <img class="mr-2"
                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAABB0lEQVR4nKXQPUpDQRAH8O0tbeyE7Iyk8hIhaSWFVop5M+GRwlwgF4iVpBMrG0E8gYIX0dpA2JnXeIEk7MZUZj+iA/9mmf3tzBrzhzq+dkfIOkPWFzvUs3BoK7kA0odcsGr6oZ8dAMscWVfbBAxJX5H0DVluUwFuursQH2B9DhCQjnLr2AgSQnpXBNkE4s/9n2Wh1kAwPol8+UdCYwoqRlJQbh3LDpCbGySZRKHSSZBkiiz3OyGonc1NYn4qDbE+liB5iPQz+7E5qH31fYgsyxIkCZ2QdjaALIHlw68JtbMmUlHo9HJxANT0/GSxy6YE2rd+QcjyhEOt987m7hZyY2B5/0fOPbQGfAK5hW0Lt24AAAAASUVORK5CYII=">Edit</button>
       </div>
