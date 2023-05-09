@@ -1,7 +1,6 @@
 import { CdkDragDrop, copyArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
 import { AfterViewInit, Component, ComponentFactoryResolver, ElementRef, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { Header1UiComponent } from '../../../../../../shared/features/src/lib/header-1/header-1-ui/header-1-ui.component';
 import { DATA_PREVIEW, DATA_SIDE_BAR } from './mockdata';
 
 @Component({
@@ -25,13 +24,13 @@ export class PageDetailsComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // Create a component factory
-    const factory = this.resolver.resolveComponentFactory(Header1UiComponent);
+    // const factory = this.resolver.resolveComponentFactory(Header1UiComponent);
 
-    // Use Renderer2 to create a new element with the component's selector
-    const componentRef = factory.create(this.componentContainer.injector);
+    // // Use Renderer2 to create a new element with the component's selector
+    // const componentRef = factory.create(this.componentContainer.injector);
 
-    // Append the component to the component container using Renderer2
-    this.renderer.appendChild(this.componentContainer.element.nativeElement, componentRef.location.nativeElement);
+    // // Append the component to the component container using Renderer2
+    // this.renderer.appendChild(this.componentContainer.element.nativeElement, componentRef.location.nativeElement);
   }
 
   drop(event: CdkDragDrop<string[]>): void {

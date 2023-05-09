@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IsLoggedInGuard } from '@cwp/shared/configurations';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { ComponentFeaturesModule } from '@cwp/shared/features';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';

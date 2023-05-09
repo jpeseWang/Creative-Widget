@@ -1,6 +1,24 @@
 export const DATA_PREVIEW = [{
   preview: 'https://tailwindui.com/img/ecommerce-images/home-page-03-header.jpg',
-  src: "<cwp-header-1-ui></cwp-header-1-ui>"
+  type: "header-1",
+  header1: {
+    option1: "Product",
+    option2: "Company",
+    option3: "Connect",
+    option4: "Account",
+    header_option: {
+
+      title:
+        url:
+    }
+    config: {
+      colỏ:
+        font:
+
+    }
+  },
+  order: 1,
+  src: "<cwp-header-1-ui data=[]></cwp-header-1-ui>"
 },
 {
   preview: 'https://tailwindui.com/img/ecommerce-images/home-page-03-header.jpg',
@@ -87,6 +105,18 @@ export const DATA_PREVIEW = [{
 }
 ];
 export const DATA_SIDE_BAR = [
+  {
+    preview: 'https://tailwindui.com/img/ecommerce-images/home-page-03-header.jpg',
+    type: "header-1",
+    header1: {
+      option1: "Product",
+      option2: "Company",
+      option3: "Connect",
+      option4: "Account",
+    },
+    order: 1,
+    src: "<cwp-header-1-ui data=[]></cwp-header-1-ui>"
+  },
   {
     preview: 'https://via.placeholder.com/300',
     src: `<div class="bg-white">

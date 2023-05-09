@@ -11,18 +11,11 @@
            (mouseenter)="onMouseEnter(item,i)"
            (mouseleave)="onMouseLeave(item,i)"
            cdkDrag>
-        <div class="relative w-full"
-             *ngIf="item.src.startsWith('<div');else isComponent">
-          <div [innerHTML]="item.src"
-               class="w-full">
-          </div>
-        </div>
-        <ng-template #isComponent>
-          <div class="relative w-full">
-            <div #componentContainer
-                 class="w-full"></div>
-          </div>
-        </ng-template>
+        <container-element class="w-full"
+                           [ngSwitch]="item.type">
+          <cwp-header-1-ui *ngSwitchCase="'header-1'"
+                           [data]="item.header1"></cwp-header-1-ui>
+        </container-element>
         <button *ngIf="showButton===item"
                 class="absolute top-6 right-0 z-50
                                         bg-gray-200 hover:bg-gray-300
