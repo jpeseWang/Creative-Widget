@@ -34,7 +34,9 @@ export const DATA_PREVIEW = [
     type: "footer-1",
     option: {
       title: ["About", "Contact", "Blog", "Careers", "Support", "Privacy Policy"],
-      icon: ["Facebook", "Twitter", "Instagram", "Linkedin", "Youtube", "Github"],
+      social: ["Facebook", "Twitter", "Instagram", "Youtube", "Github"],
+      url: ["/#", "/#", "/#", "/#", "/#", "/#"],
+      iconUrl: ["/#", "/#", "/#", "/#", "/#"],
       backGroundColor: "rgba(0, 1, 0, 0.5)",
       textColor: "rgba(255, 255, 255,1)",
     },

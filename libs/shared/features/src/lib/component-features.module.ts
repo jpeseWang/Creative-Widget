@@ -11,6 +11,7 @@ import { Category2UiComponent } from './category/category-2-ui/category-2-ui.com
 import { Category3UiComponent } from './category/category-3-ui/category-3-ui.component';
 import { Footer1PopupComponent } from './footer/footer-1-popup/footer-1-popup.component';
 import { Footer1UiComponent } from './footer/footer-1-ui/footer-1-ui.component';
+import { Footer2PopupComponent } from './footer/footer-2-popup/footer-2-popup.component';
 import { Footer2UiComponent } from './footer/footer-2-ui/footer-2-ui.component';
 import { FrontPage1UiComponent } from './front-page/front-page-1-ui/front-page-1-ui.component';
 import { Header1PopupComponent } from './header/header-1/header-1-popup/header-1-popup.component';
@@ -43,6 +44,7 @@ import { EditDialogComponent } from './setup-component/edit-dialog/edit-dialog.c
     Footer2UiComponent,
     FrontPage1UiComponent,
     Footer1PopupComponent,
+    Footer2PopupComponent,
   ],
   exports: [
     Header1UiComponent,
@@ -57,6 +59,7 @@ import { EditDialogComponent } from './setup-component/edit-dialog/edit-dialog.c
     Footer2UiComponent,
     FrontPage1UiComponent,
     Footer1PopupComponent,
+    Footer2PopupComponent,
   ],
 })
 export class ComponentFeaturesModule {}

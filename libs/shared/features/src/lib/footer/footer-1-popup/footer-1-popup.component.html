@@ -7,6 +7,7 @@
     <form class="mt-2"
           [formGroup]="editHeaderForm">
       <div class="overflow-hidden">
+        {{data.title}}
         <ul role="list"
             *ngFor="let item of data.title; let i = index">
           <div>
@@ -30,7 +31,6 @@
         <div class="flex flex-row space-between">
           <label class="w-full mt-4 block text-sm font-medium leading-6 text-gray-900">Background Color</label>
           <div class="w-100">
-            {{data.backGroundColor}}
             <div class="flex justify-start mt-3 w-full">
               <input type="color"
                      id="backgroundColor"
